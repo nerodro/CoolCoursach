@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model CoolCoursach.Models.User
+
+
+    <fieldset>
+        <legend>Удалить студента</legend>
+
+        <p>
+            Email пользователя <br />
+            @Html.DisplayFor(model => model.Email)
+        </p>
+
+        <p>
+            Пароль <br />
+            @Html.DisplayFor(model => model.Password)
+        </p>
+        <p>
+            Роль <br />
+            @Html.DisplayFor(model => model.RoleId, ViewBag.Roles as SelectList)
+        </p>
+            <p>
+            Группа <br />
+            @Html.DisplayFor(model => model.GroupName, ViewBag.Groups as SelectList)
+        </p>
+             <p>
+            Специальность <br />
+            @Html.DisplayFor(model => model.FacultName, ViewBag.Facults as SelectList)
+        </p>
+         @using (Html.BeginForm())
+        {
+        <p>
+            <input type="submit" value="Удалить студента" />
+        </p>
+    
+        }
+            </fieldset>

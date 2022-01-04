@@ -1,0 +1,10 @@
+﻿@*@{
+    ViewData["Title"] = "Home Page";
+}*@
+
+@model IEnumerable<CoolCoursach.Models.User>
+
+<div class="text-center">
+    <h3 class="display-4">Добро пожаловать на сайт для студентов и преподавателей</h3>
+             @Html.ActionLink("Выйти", "Logout", "Account")
+</div>
