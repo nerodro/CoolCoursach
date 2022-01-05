@@ -2,9 +2,43 @@
     ViewData["Title"] = "Home Page";
 }*@
 
-@model IEnumerable<CoolCoursach.Models.User>
+@model CoolCoursach.Models.UserListViewModel
 
 <div class="text-center">
     <h3 class="display-4">Добро пожаловать на сайт для студентов и преподавателей</h3>
              @Html.ActionLink("Выйти", "Logout", "Account")
 </div>
+<form method="get">
+    <div class="form-inline form-group">
+        <label class="control-label">Имя: </label>
+        <input name="Email" class="form-control" />
+        <label class="control-label">Фамилия: </label>
+        <input name="Surname" class="form-control" />
+        <label class="control-label">Отчество: </label>
+        <input name="Patronymic" class="form-control" />
+ 
+        <label class="control-label">Группа: </label>
+        <select name="group" asp-items="Model.Groups" class="form-control"></select>
+ 
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+ 
+<table>
+    <tr>
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Отчество</td>
+        <td>Группа</td>
+        <td>Специальность</td>
+    </tr>
+    @foreach(var User in Model.Users){
+    <tr>
+        <td>@User.Email</td>
+        <td>@User.Surname</td>
+        <td>@User.Patronymic</td>
+        <td>@User.GroupName</td>
+        <td>@User.FacultName</td>
+    </tr>
+    }
+</table>

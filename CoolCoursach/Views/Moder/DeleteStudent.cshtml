@@ -10,10 +10,17 @@
         <legend>Удалить студента</legend>
 
         <p>
-            Email пользователя <br />
+            Имя пользователя <br />
             @Html.DisplayFor(model => model.Email)
         </p>
-
+          <p>
+            Фамилия студента <br />
+            @Html.DisplayFor(model => model.Surname)
+        </p>
+         <p>
+            Отчество студента <br />
+            @Html.DisplayFor(model => model.Patronymic)
+        </p>
         <p>
             Пароль <br />
             @Html.DisplayFor(model => model.Password)

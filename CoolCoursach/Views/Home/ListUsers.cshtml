@@ -11,12 +11,16 @@
 <table>
     <tr>
         <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Отчество</td>
         <td>Группа</td>
         <td>Специальность</td>
     </tr>
     @foreach(var User in Model){
     <tr>
         <td>@User.Email</td>
+        <td>@User.Surname</td>
+        <td>@User.Patronymic</td>
         <td>@User.GroupName</td>
         <td>@User.FacultName</td>
     </tr>

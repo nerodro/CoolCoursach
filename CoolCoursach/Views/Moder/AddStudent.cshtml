@@ -11,15 +11,22 @@
         <legend>Новый студент</legend>
 
         <p>
-            Email пользователя <br />
+            Имя студента <br />
             @Html.EditorFor(model => model.Email)
         </p>
-
+         <p>
+            Фамилия студента <br />
+            @Html.EditorFor(model => model.Surname)
+        </p>
+         <p>
+            Отчество студента <br />
+            @Html.EditorFor(model => model.Patronymic)
+        </p>
         <p>
             Пароль <br />
             @Html.EditorFor(model => model.Password)
         </p>
-       @* <p>
+   @*    <p>
             Роль <br />
             @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
         </p>*@

@@ -59,20 +59,23 @@ namespace CoolCoursach.Controllers
             User user = _context.Users.Find(Id);
             if (user != null)
             {
-                //SelectList roles = new SelectList(_context.Roles, "Id", "Name");
-                //ViewBag.Roles = roles;
+                SelectList roles = new SelectList(_context.Roles, "Id", "Name");
+                ViewBag.Roles = roles;
                 SelectList groups = new SelectList(_context.Groups, "Name", "Name");
                 ViewBag.Groups = groups;
                 SelectList facults = new SelectList(_context.Facults, "Name", "Name");
                 ViewBag.Facults = facults;
-                Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
+                
                 return View(user);
             }
             return RedirectToAction("ModerPage", "Moder");
         }
         [HttpPost]
-        public IActionResult EditStudent(User user)
+        public async Task<IActionResult> EditStudentAsync(User user)
         {
+            //Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
+            //if (userRole != null)
+            //    user.Role = userRole;
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();
             return RedirectToAction("ModerPage", "Moder");

@@ -4,7 +4,7 @@ namespace CoolCoursach.Models
 {
     public class RegisterModel
     {
-        [Required(ErrorMessage = "Не указан Email")]
+        [Required(ErrorMessage = "Не указано Имя")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Не указан пароль")]
