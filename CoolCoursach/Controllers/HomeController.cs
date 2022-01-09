@@ -25,6 +25,15 @@ namespace CoolCoursach.Controllers
         {
             _context = context;
         }
+        [HttpGet]
+        public void FindId(int? Id)
+        {
+            if (Id == null)
+            {
+                HttpNotFound();
+            }
+        }
+
         [Authorize(Roles = "admin, moder,user")]
         public IActionResult Index(int? group, string Email, string Surname, string Patronymic)
         {
@@ -67,16 +76,21 @@ namespace CoolCoursach.Controllers
         {
             return View();
         }
-
-        public IActionResult ListUsers()
+        public IActionResult PersonalCabinet(int? Id)
         {
-            return View(_context.Users.FromSqlRaw("SELECT * FROM Users WHERE RoleId = 3").ToList());
+            User user = _context.Users.Find(Id);
+            FindId(Id: Id);
+            return View(user);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        private void HttpNotFound()
+        {
+            throw new NotImplementedException();
         }
     }
 }

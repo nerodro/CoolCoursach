@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -47,10 +48,28 @@ namespace CoolCoursach.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPerson(User user)
+        public async Task<IActionResult> AddPerson(UserViewModel user)
         {
-            Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
-            _context.Users.Add(user);
+            User users = new User
+            {
+                Email = user.Email,
+                Surname = user.Surname,
+                Patronymic = user.Patronymic,
+                Password = user.Password,
+                GroupName = user.GroupName,
+                FacultName = user.FacultName,
+                RoleId = user.RoleId
+            };
+            if (user.Photo != null)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(user.Photo.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)user.Photo.Length);
+                }
+                users.Photo = imageData;
+            }
+            _context.Users.Add(users);
             await _context.SaveChangesAsync();
             return RedirectToAction("PersonsList", "Admin");
         }
@@ -94,7 +113,6 @@ namespace CoolCoursach.Controllers
             _context.SaveChanges();
             return RedirectToAction("PersonsList", "Admin");
         }
-
         private void HttpNotFound()
         {
             throw new NotImplementedException();

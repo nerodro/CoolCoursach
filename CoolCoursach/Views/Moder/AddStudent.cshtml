@@ -4,17 +4,34 @@
 @{
 }
 @model CoolCoursach.Models.User
-
- @using (Html.BeginForm())
-        {
     <fieldset>
         <legend>Новый студент</legend>
-
-        <p>
-            Имя студента <br />
+        <form asp-action="AddStudent" asp-controller="Moder" method="post" enctype="multipart/form-data">
+            <p>
+                <label>Имя</label>
+                <input name="Email" class="form-control"/>
+                </p>
+            <p>
+                <label>Фамилия</label>
+                <input name="Surname" class="form-control"/>
+            </p>
+             <p>
+                <label>Отчество</label>
+                <input name="Patronymic" class="form-control"/>
+            </p>
+             <p>
+                <label>Фото</label>
+                <input name="Photo" type="file"class="form-control"/>
+            </p>
+             <p>
+                <label>Пароль</label>
+                <input name="Password" class="form-control"/>
+            </p>
+                  @*  <p>
+            Email пользователя <br />
             @Html.EditorFor(model => model.Email)
         </p>
-         <p>
+          <p>
             Фамилия студента <br />
             @Html.EditorFor(model => model.Surname)
         </p>
@@ -25,11 +42,11 @@
         <p>
             Пароль <br />
             @Html.EditorFor(model => model.Password)
-        </p>
-   @*    <p>
+        </p>*@
+        <p>
             Роль <br />
             @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
-        </p>*@
+        </p>
             <p>
             Группа <br />
             @Html.DropDownListFor(model => model.GroupName, ViewBag.Groups as SelectList)
@@ -41,5 +58,5 @@
         <p>
             <input type="submit" value="Добавить нового пользователя" />
         </p>
+        </form>
         </fieldset>
-        }

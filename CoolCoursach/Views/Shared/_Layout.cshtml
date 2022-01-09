@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,9 +20,9 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListUsers">Список учащихся</a>
-                        </li>
+                        </li>*@
                              @if(User.IsInRole("admin")|| User.IsInRole("moder")){
                         <li class="nav-item">
                            <a class = "nav-link text-dark"> @Html.ActionLink("Список учащихся(moder)","ModerPage","Moder")</a>
@@ -31,9 +33,9 @@
                            <a class = "nav-link text-dark"> @Html.ActionLink("Список всех пользователей", "AdminPage", "Admin")</a>
                         </li>
                              }
-                        <li class="nav-item">
+                      @*  <li class="nav-item">
                             @User.Identity.Name
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </div>

@@ -4,13 +4,30 @@
 @{
 }
 @model CoolCoursach.Models.User
-
- @using (Html.BeginForm())
-        {
     <fieldset>
-        <legend>Новый </legend>
-
-        <p>
+        <legend>Новый человек на сайте</legend>
+        <form asp-action="AddPerson" asp-controller="Admin" method="post" enctype="multipart/form-data">
+            <p>
+                <label>Имя</label>
+                <input name="Email" class="form-control"/>
+                </p>
+            <p>
+                <label>Фамилия</label>
+                <input name="Surname" class="form-control"/>
+            </p>
+             <p>
+                <label>Отчество</label>
+                <input name="Patronymic" class="form-control"/>
+            </p>
+             <p>
+                <label>Фото</label>
+                <input name="Photo" type="file"class="form-control"/>
+            </p>
+             <p>
+                <label>Пароль</label>
+                <input name="Password" class="form-control"/>
+            </p>
+                  @*  <p>
             Email пользователя <br />
             @Html.EditorFor(model => model.Email)
         </p>
@@ -25,7 +42,7 @@
         <p>
             Пароль <br />
             @Html.EditorFor(model => model.Password)
-        </p>
+        </p>*@
         <p>
             Роль <br />
             @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
@@ -41,5 +58,5 @@
         <p>
             <input type="submit" value="Добавить нового пользователя" />
         </p>
+        </form>
         </fieldset>
-        }

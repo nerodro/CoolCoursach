@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
 
 namespace CoolCoursach.Models
 {
-    public class User
+    public class UserViewModel
     {
-        public int Id { get; set; }
         public string Email { get; set; }
         public string Surname { get; set; }
         public string Patronymic { get; set; }
@@ -13,12 +12,12 @@ namespace CoolCoursach.Models
         public int? GroupId { get; set; }
         public string GroupName { get; set; }
         public Facult Facult { get; set; }
-       // public int FacultId { get; set; }
+        // public int FacultId { get; set; }
         public string FacultName { get; set; }
         public int? RoleId { get; set; }
         public Role Role { get; set; }
         public int? CourceId { get; set; }
         public Cource Cource { get; set; }
-        public byte[] Photo { get; set; }
+        public IFormFile Photo { get; set; }
     }
 }

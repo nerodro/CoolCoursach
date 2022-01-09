@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -35,8 +36,8 @@ namespace CoolCoursach.Controllers
         [HttpGet]
         public IActionResult AddStudentAsync()
         {
-            //SelectList roles = new SelectList(_context.Roles, "Id", "Name");
-            //ViewBag.Roles = roles;
+            SelectList roles = new SelectList(_context.Roles, "Id", "Name");
+            ViewBag.Roles = roles;
             SelectList groups = new SelectList(_context.Groups, "Name", "Name");
             ViewBag.Groups = groups;    
             SelectList facults = new SelectList(_context.Facults, "Name", "Name");
@@ -45,15 +46,25 @@ namespace CoolCoursach.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddStudent(User user)
+        public async Task<IActionResult> AddStudent(UserViewModel user)
         {
-            Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
-            _context.Users.Add(user);
+            User users = new User{Email = user.Email,Surname = user.Surname,Patronymic = user.Patronymic,
+            Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = user.RoleId};
+            if(user.Photo != null)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(user.Photo.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)user.Photo.Length);
+                }
+                users.Photo = imageData;
+            }
+            _context.Users.Add(users);
             await _context.SaveChangesAsync();
             return RedirectToAction("ModerPage", "Moder");
         }
         [HttpGet]
-        public async Task<IActionResult> EditStudentAsync(int? Id)
+        public IActionResult EditStudent(int? Id)
         {
             FindId(Id: Id);
             User user = _context.Users.Find(Id);
@@ -65,13 +76,13 @@ namespace CoolCoursach.Controllers
                 ViewBag.Groups = groups;
                 SelectList facults = new SelectList(_context.Facults, "Name", "Name");
                 ViewBag.Facults = facults;
-                
+
                 return View(user);
             }
             return RedirectToAction("ModerPage", "Moder");
         }
         [HttpPost]
-        public async Task<IActionResult> EditStudentAsync(User user)
+        public IActionResult EditStudent(User user)
         {
             //Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
             //if (userRole != null)
