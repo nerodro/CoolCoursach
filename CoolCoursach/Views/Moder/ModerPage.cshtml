@@ -10,6 +10,7 @@
         <td>Отчество</td>
         <td>Группа</td>
         <td>Специальность</td>
+        <td>Статуст студента</td>
     </tr>
     @foreach(var User in Model){
     <tr>
@@ -24,7 +25,7 @@
         <td>@User.Patronymic</td>
         <td>@User.GroupName</td>
         <td>@User.FacultName</td>
-    
+        <td>@User.StatusName</td>
     <td>@Html.ActionLink("Редактировать пользователя","EditStudent","Moder", new{Id = User.Id})</td>
     <td>@Html.ActionLink("Удалить пользователя","DeleteStudent","Moder", new{Id = User.Id})</td>
         </tr>

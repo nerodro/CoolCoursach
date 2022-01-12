@@ -42,6 +42,8 @@ namespace CoolCoursach.Controllers
             ViewBag.Groups = groups;    
             SelectList facults = new SelectList(_context.Facults, "Name", "Name");
             ViewBag.Facults = facults;
+            SelectList status = new SelectList(_context.Statuss, "Name", "Name");
+            ViewBag.Status = status;
             return View();
         }
 
@@ -49,7 +51,7 @@ namespace CoolCoursach.Controllers
         public async Task<IActionResult> AddStudent(UserViewModel user)
         {
             User users = new User{Email = user.Email,Surname = user.Surname,Patronymic = user.Patronymic,
-            Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = user.RoleId};
+            Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = user.RoleId, StatusName = user.StatusName};
             if(user.Photo != null)
             {
                 byte[] imageData = null;
@@ -76,7 +78,8 @@ namespace CoolCoursach.Controllers
                 ViewBag.Groups = groups;
                 SelectList facults = new SelectList(_context.Facults, "Name", "Name");
                 ViewBag.Facults = facults;
-
+                SelectList status = new SelectList(_context.Statuss, "Name", "Name");
+                ViewBag.Status = status;
                 return View(user);
             }
             return RedirectToAction("ModerPage", "Moder");

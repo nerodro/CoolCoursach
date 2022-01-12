@@ -44,6 +44,8 @@ namespace CoolCoursach.Controllers
             ViewBag.Groups = groups;
             SelectList facults = new SelectList(_context.Facults, "Name", "Name");
             ViewBag.Facults = facults;
+            SelectList status = new SelectList(_context.Statuss, "Name", "Name");
+            ViewBag.Facults = status;
             return View();
         }
 
@@ -86,7 +88,9 @@ namespace CoolCoursach.Controllers
                 ViewBag.Groups = groups;
                 SelectList facults = new SelectList(_context.Facults, "Name", "Name");
                 ViewBag.Facults = facults;
-                Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
+                SelectList status = new SelectList(_context.Statuss, "Name", "Name");
+                ViewBag.Facults = status;
+                //Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
                 return View(user);
             }
             return RedirectToAction("PersonsList", "Admin");

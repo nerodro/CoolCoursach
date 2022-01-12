@@ -18,6 +18,8 @@ namespace CoolCoursach.Models
         public Role Role { get; set; }
         public int? CourceId { get; set; }
         public Cource Cource { get; set; }
+        public Status Status { get; set; }
+        public string StatusName { get; set; }
         public IFormFile Photo { get; set; }
     }
 }

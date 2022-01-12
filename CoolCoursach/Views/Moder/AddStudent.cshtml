@@ -55,6 +55,11 @@
             Специальность <br />
             @Html.DropDownListFor(model => model.FacultName, ViewBag.Facults as SelectList)
         </p>
+        </p>
+             <p>
+            Статус студента <br />
+            @Html.DropDownListFor(model => model.StatusName, ViewBag.Status as SelectList)
+        </p>
         <p>
             <input type="submit" value="Добавить нового пользователя" />
         </p>

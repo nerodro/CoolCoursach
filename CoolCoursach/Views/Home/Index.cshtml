@@ -33,6 +33,7 @@
         <td>Отчество</td>
         <td>Группа</td>
         <td>Специальность</td>
+        <td>Статус</td>
         <td>Профиль</td>
     </tr>
     @foreach(var User in Model.Users){
@@ -48,6 +49,7 @@
         <td>@User.Patronymic</td>
         <td>@User.GroupName</td>
         <td>@User.FacultName</td>
+        <td>@User.StatusName</td>
         <td>@Html.ActionLink("Профиль", "PersonalCabinet", "Home", new{Id = User.Id})</td>
     </tr>
     }
