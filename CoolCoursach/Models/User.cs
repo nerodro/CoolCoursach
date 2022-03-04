@@ -22,5 +22,7 @@ namespace CoolCoursach.Models
         public Status Status { get; set; }
         public string StatusName { get; set; }
         public byte[] Photo { get; set; }
+        public string Passport { get; set; }
+
     }
 }

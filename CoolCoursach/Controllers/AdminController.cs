@@ -45,7 +45,7 @@ namespace CoolCoursach.Controllers
             SelectList facults = new SelectList(_context.Facults, "Name", "Name");
             ViewBag.Facults = facults;
             SelectList status = new SelectList(_context.Statuss, "Name", "Name");
-            ViewBag.Facults = status;
+            ViewBag.Status = status;
             return View();
         }
 
@@ -60,7 +60,8 @@ namespace CoolCoursach.Controllers
                 Password = user.Password,
                 GroupName = user.GroupName,
                 FacultName = user.FacultName,
-                RoleId = user.RoleId
+                RoleId = user.RoleId,
+                StatusName = user.StatusName
             };
             if (user.Photo != null)
             {

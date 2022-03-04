@@ -26,6 +26,10 @@
             Пароль <br />
             @Html.EditorFor(model => model.Password)
         </p>
+         <p>
+            Паспортные данные <br />
+            @Html.EditorFor(model => model.Passport)
+        </p>
         <p>
             Роль <br />
             @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
@@ -43,7 +47,7 @@
             @Html.DropDownListFor(model => model.StatusName, ViewBag.Status as SelectList)
         </p>
         <p>
-            <input type="submit" value="Сохранить" />
+            <input type="submit" value="Сохранить" class="btn btn1"/>
         </p>
         </fieldset>
         }

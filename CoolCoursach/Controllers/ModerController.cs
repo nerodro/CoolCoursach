@@ -51,7 +51,7 @@ namespace CoolCoursach.Controllers
         public async Task<IActionResult> AddStudent(UserViewModel user)
         {
             User users = new User{Email = user.Email,Surname = user.Surname,Patronymic = user.Patronymic,
-            Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = user.RoleId, StatusName = user.StatusName};
+            Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = user.RoleId, StatusName = user.StatusName, Passport = user.Passport};
             if(user.Photo != null)
             {
                 byte[] imageData = null;

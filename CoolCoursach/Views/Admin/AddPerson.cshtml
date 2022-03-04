@@ -9,23 +9,23 @@
         <form asp-action="AddPerson" asp-controller="Admin" method="post" enctype="multipart/form-data">
             <p>
                 <label>Имя</label>
-                <input name="Email" class="form-control"/>
+                <input name="Email" class="input1"/>
                 </p>
             <p>
                 <label>Фамилия</label>
-                <input name="Surname" class="form-control"/>
+                <input name="Surname" class="input1"/>
             </p>
              <p>
                 <label>Отчество</label>
-                <input name="Patronymic" class="form-control"/>
+                <input name="Patronymic" class="input1"/>
             </p>
              <p>
                 <label>Фото</label>
-                <input name="Photo" type="file"class="form-control"/>
+                <input name="Photo" type="file"class="input1"/>
             </p>
              <p>
                 <label>Пароль</label>
-                <input name="Password" class="form-control"/>
+                <input name="Password" class="input1"/>
             </p>
                   @*  <p>
             Email пользователя <br />
@@ -55,8 +55,13 @@
             Специальность <br />
             @Html.DropDownListFor(model => model.FacultName, ViewBag.Facults as SelectList)
         </p>
+        </p>
+             <p>
+            Статус студента <br />
+            @Html.DropDownListFor(model => model.StatusName, ViewBag.Status as SelectList)
+        </p>
         <p>
-            <input type="submit" value="Добавить нового пользователя" />
+            <input type="submit" value="Добавить нового пользователя"class="btn btn1" />
         </p>
         </form>
         </fieldset>

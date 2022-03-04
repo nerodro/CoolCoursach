@@ -6,25 +6,34 @@
 
 <div class="text-center">
     <h3 class="display-4">Добро пожаловать на сайт для студентов и преподавателей</h3>
-             @Html.ActionLink("Выйти", "Logout", "Account")
+             @*@Html.ActionLink("Выйти", "Logout", "Account")*@
 
 </div>
-<form method="get">
-    <div class="form-inline form-group">
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn"> Поиск</button>
+    <div id="my Dropdown" class="dropdown-content">
+        <form method="get">
+        <div class="form-inline form-group">
         <label class="control-label">Имя: </label>
         <input name="Email" class="form-control" />
         <label class="control-label">Фамилия: </label>
         <input name="Surname" class="form-control" />
         <label class="control-label">Отчество: </label>
         <input name="Patronymic" class="form-control" />
+        <label class="control-label">Паспортные данные: </label>
+        <input name="Passport" class="form-control" />
  
         @*<label class="control-label">Группа: </label>
-        <select name="group" asp-items="Model.Groups" class="form-control"></select>*@
+        <select name="group" asp-items="Model.Groups" class="form-control"></select>
+        <label class="control-label">Специальность: </label>
+        <select name="facult" asp-items="Model.Facults" class="form-control"></select>*@
                
-        <input type="submit" value="Фильтр" class="btn btn-default" />
-    </div>
-</form>
- 
+        <input type="submit" value="Найти" class="btn btn-default" />
+        </div>
+        </form>
+  </div>
+</div>
+<p></p>
 <table>
     <tr>
         <td>Фото</td>
@@ -34,7 +43,8 @@
         <td>Группа</td>
         <td>Специальность</td>
         <td>Статус</td>
-        <td>Профиль</td>
+        <td>Паспортные данные</td>
+        @*<td>Профиль</td>*@
     </tr>
     @foreach(var User in Model.Users){
     <tr>
@@ -50,7 +60,8 @@
         <td>@User.GroupName</td>
         <td>@User.FacultName</td>
         <td>@User.StatusName</td>
-        <td>@Html.ActionLink("Профиль", "PersonalCabinet", "Home", new{Id = User.Id})</td>
+        <td>@User.Passport</td>
+       @* <td>@Html.ActionLink("Профиль", "PersonalCabinet", "Home", new{Id = User.Id})</td>*@
     </tr>
     }
 </table>

@@ -25,6 +25,10 @@
             Пароль <br />
             @Html.DisplayFor(model => model.Password)
         </p>
+          <p>
+            Паспортные данные <br />
+            @Html.DisplayFor(model => model.Passport)
+        </p>
         <p>
             Роль <br />
             @Html.DisplayFor(model => model.RoleId, ViewBag.Roles as SelectList)
@@ -44,7 +48,7 @@
          @using (Html.BeginForm())
         {
         <p>
-            <input type="submit" value="Удалить студента" />
+            <input type="submit" value="Удалить студента" class="btn btn1"/>
         </p>
     
         }

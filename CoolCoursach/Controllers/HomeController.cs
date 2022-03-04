@@ -35,13 +35,17 @@ namespace CoolCoursach.Controllers
         }
 
         [Authorize(Roles = "admin, moder,user")]
-        public IActionResult Index(int? group, string Email, string Surname, string Patronymic)
+        public IActionResult Index(string group,string facult, string Email, string Surname, string Patronymic/*,string facult*/, string Passport)
         {
             IQueryable<User> users = _context.Users.Include(p => p.Group);
-            if (group != null && group != 0)
-            {
-                users = users.Where(p => p.GroupId == group);
-            }
+            //if (String.IsNullOrEmpty(group))
+            //{
+            //    users = users.Where(p => p.GroupName == group);
+            //}
+            //if (String.IsNullOrEmpty(facult))
+            //{
+            //    users = users.Where(p => p.FacultName == facult);
+            //}
             if (!String.IsNullOrEmpty(Email))
             {
                 users = users.Where(p => p.Email.Contains(Email));
@@ -54,22 +58,28 @@ namespace CoolCoursach.Controllers
             {
                 users = users.Where(p => p.Patronymic.Contains(Patronymic));
             }
+            if (!String.IsNullOrEmpty(Passport))
+            {
+                users = users.Where(p => p.Passport.Contains(Passport));
+            }
 
             List<Group> groups = _context.Groups.ToList();
+            List<Facult> facults = _context.Facults.ToList();
             // устанавливаем начальный элемент, который позволит выбрать всех
             groups.Insert(0, new Group { Name = "Все", Id = 0 });
 
             UserListViewModel viewModel = new UserListViewModel
             {
                 Users = users.ToList(),
-                Groups = new SelectList(groups, "Name", "Name"),
+                //Groups = new SelectList(groups, "Name", "Name"),
                 Email = Email,
                 Surname = Surname,
-                Patronymic = Patronymic
+                Patronymic = Patronymic,
+                Passport = Passport,
+                //Facults = new SelectList(facults, "Name", "Name")
 
             };
             return View(viewModel);
-            //return View(_context.Users.ToList());
         }
  
         public IActionResult Privacy()
