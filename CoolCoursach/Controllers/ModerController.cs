@@ -36,8 +36,8 @@ namespace CoolCoursach.Controllers
         [HttpGet]
         public IActionResult AddStudentAsync()
         {
-            SelectList roles = new SelectList(_context.Roles, "Id", "Name");
-            ViewBag.Roles = roles;
+            //SelectList roles = new SelectList(_context.Roles, "Id", "Name");
+            //ViewBag.Roles = roles;
             SelectList groups = new SelectList(_context.Groups, "Name", "Name");
             ViewBag.Groups = groups;    
             SelectList facults = new SelectList(_context.Facults, "Name", "Name");
@@ -51,7 +51,7 @@ namespace CoolCoursach.Controllers
         public async Task<IActionResult> AddStudent(UserViewModel user)
         {
             User users = new User{Email = user.Email,Surname = user.Surname,Patronymic = user.Patronymic,
-            Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = user.RoleId, StatusName = user.StatusName, Passport = user.Passport};
+            Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = 3, StatusName = user.StatusName, Passport = user.Passport};
             if(user.Photo != null)
             {
                 byte[] imageData = null;
@@ -72,8 +72,8 @@ namespace CoolCoursach.Controllers
             User user = _context.Users.Find(Id);
             if (user != null)
             {
-                SelectList roles = new SelectList(_context.Roles, "Id", "Name");
-                ViewBag.Roles = roles;
+                //SelectList roles = new SelectList(_context.Roles, "Id", "Name");
+                //ViewBag.Roles = roles;
                 SelectList groups = new SelectList(_context.Groups, "Name", "Name");
                 ViewBag.Groups = groups;
                 SelectList facults = new SelectList(_context.Facults, "Name", "Name");
@@ -90,6 +90,7 @@ namespace CoolCoursach.Controllers
             //Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
             //if (userRole != null)
             //    user.Role = userRole;
+            user.RoleId = 3;
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();
             return RedirectToAction("ModerPage", "Moder");

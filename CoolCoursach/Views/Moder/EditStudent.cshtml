@@ -4,7 +4,6 @@
 @{
 }
 @model CoolCoursach.Models.User
-
  @using (Html.BeginForm())
         {
     <fieldset>
@@ -30,10 +29,10 @@
             Паспортные данные <br />
             @Html.EditorFor(model => model.Passport)
         </p>
-        <p>
+        @*<p>
             Роль <br />
             @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
-        </p>
+        </p>*@
             <p>
             Группа <br />
             @Html.DropDownListFor(model => model.GroupName, ViewBag.Groups as SelectList)
