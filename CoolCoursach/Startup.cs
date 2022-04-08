@@ -1,3 +1,4 @@
+using CoolCoursach.Controllers;
 using CoolCoursach.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -37,6 +38,7 @@ namespace CoolCoursach
                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                });
             services.AddControllersWithViews();
+           // services.AddSingleton<IRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

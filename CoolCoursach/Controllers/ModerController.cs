@@ -14,10 +14,11 @@ namespace CoolCoursach.Controllers
 {
     public class ModerController : Controller
     {
-        GeneralContext _context;
-        public ModerController(GeneralContext context)
+        private readonly GeneralContext _context;
+        public ModerController(GeneralContext context/*, IRepository repo*/)
         {
             _context = context;
+            //_repository = repo;
         }
         [HttpGet]
         public void FindId(int? Id)
@@ -51,7 +52,8 @@ namespace CoolCoursach.Controllers
         public async Task<IActionResult> AddStudent(UserViewModel user)
         {
             User users = new User{Email = user.Email,Surname = user.Surname,Patronymic = user.Patronymic,
-            Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = 3, StatusName = user.StatusName, Passport = user.Passport};
+            Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = 3, StatusName = user.StatusName, Passport = user.Passport,
+            FatherSurname = user.FatherSurname, FatherName = user.FatherName, MotherName = user.MotherName, MotherSurname = user.MotherSurname};
             if(user.Photo != null)
             {
                 byte[] imageData = null;
@@ -85,12 +87,25 @@ namespace CoolCoursach.Controllers
             return RedirectToAction("ModerPage", "Moder");
         }
         [HttpPost]
-        public IActionResult EditStudent(User user)
+        public IActionResult EditStudent(User user, UserViewModel userss)
         {
             //Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
             //if (userRole != null)
             //    user.Role = userRole;
             user.RoleId = 3;
+            if (userss.Photo != null)
+            {
+                byte[] imageData = user.Photo;
+                using (var binaryReader = new BinaryReader(userss.Photo.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)userss.Photo.Length);
+                }
+                user.Photo = imageData;
+            }
+            else
+            {
+                userss.Photo = userss.Photo;
+            }
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();
             return RedirectToAction("ModerPage", "Moder");

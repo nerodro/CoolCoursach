@@ -5,8 +5,7 @@
 }
 @model CoolCoursach.Models.User
 
- @using (Html.BeginForm())
-        {
+<form asp-action="EditPerson" asp-controller="Admin" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Редактировать человека</legend>
 
@@ -38,8 +37,11 @@
             Специальность <br />
             @Html.DropDownListFor(model => model.FacultName, ViewBag.Facults as SelectList)
         </p>
+         <label>Фото</label>
+                <input name="Photo" type="file"class="input1"/>
+            </p>
         <p>
             <input type="submit" value="Сохранить" class="btn btn1"/>
         </p>
         </fieldset>
-        }
+        </form>

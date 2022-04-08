@@ -34,7 +34,7 @@
   </div>
 </div>
 <p></p>
-<table>
+@*<table>
     <tr>
         <td>Фото</td>
         <td>Имя</td>
@@ -44,7 +44,7 @@
         <td>Специальность</td>
         <td>Статус</td>
         <td>Паспортные данные</td>
-        @*<td>Профиль</td>*@
+        <td>Профиль</td>
     </tr>
     @foreach(var User in Model.Users){
     <tr>
@@ -61,7 +61,40 @@
         <td>@User.FacultName</td>
         <td>@User.StatusName</td>
         <td>@User.Passport</td>
-       @* <td>@Html.ActionLink("Профиль", "PersonalCabinet", "Home", new{Id = User.Id})</td>*@
+        <td>@Html.ActionLink("Профиль", "PersonalCabinet", "Home", new{Id = User.Id})</td>
     </tr>
     }
-</table>
+</table>*@
+<div class="row">
+@foreach(var User in Model.Users){
+
+        <div class="col-sm-4">
+       <div class="card mb-3">
+            <div class="card-header">
+                <div class="text-center">
+                Ф.И.О : @User.Surname, @User.Email, @User.Patronymic
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+            @if(User.Photo != null)
+            {
+                <img style="width:311px;height:311px;" src="data:image/jpeg;base64,@(Convert.ToBase64String(User.Photo))"/>
+            }
+            else
+            {
+                <img style="width:311px;height:311px;" src="img/blank-profile-picture-973460__340.jpg"/>
+            }
+            </h5>
+            </div>
+            <div class="card-footer">
+                @*<p>Группа: @User.GroupName</p>
+                <p>Специальность: @User.FacultName</p>
+                <p>Статус: @User.StatusName</p>
+                <p>Паспортные данные: @User.Passport</p>*@
+                <a class="btn btn-primary" @Html.ActionLink("Подробнее", "PersonalCabinet", "Home", new{Id = User.Id}) ></a>
+            </div>
+        </div>
+        </div>
+}
+</div>

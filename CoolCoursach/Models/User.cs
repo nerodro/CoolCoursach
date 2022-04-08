@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 
 namespace CoolCoursach.Models
 {
@@ -22,7 +23,12 @@ namespace CoolCoursach.Models
         public Status Status { get; set; }
         public string StatusName { get; set; }
         public byte[] Photo { get; set; }
+        //public IFormFile Photos { get; set; }
         public string Passport { get; set; }
+        public string MotherName { get; set; }
+        public string MotherSurname { get; set; }
+        public string FatherName { get; set; }
+        public string FatherSurname { get; set; }
 
     }
 }

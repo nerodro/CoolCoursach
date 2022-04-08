@@ -66,8 +66,8 @@ namespace CoolCoursach.Controllers
             List<Group> groups = _context.Groups.ToList();
             List<Facult> facults = _context.Facults.ToList();
             // устанавливаем начальный элемент, который позволит выбрать всех
-            groups.Insert(0, new Group { Name = "Все", Id = 0 });
 
+            groups.Insert(0, new Group { Name = "Все", Id = 0 });
             UserListViewModel viewModel = new UserListViewModel
             {
                 Users = users.ToList(),

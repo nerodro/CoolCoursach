@@ -11,27 +11,56 @@
         <p>
            @* Фото
             @Html.DisplayFor(model => model.Photo)
-            <img style="width:80px;height:60px;" src="data:image/jpeg;base64,@Html.DisplayFor((Convert.ToBase64String((model.Photo))))"/>*@
+            <img style="width:80px;height:60px;" src="data:image/jpeg;base64,@Html.DisplayFor((Convert.ToBase64String((model.Photo))))"/>
+            <img style="width:311px;height:311px;" src="data:image/jpeg;base64,@(Convert.ToBase64String(User.Photo))"/>*@
 
         </p>
+          <p>
+            Фото: <br />
+            <img style="width:80px;height:60px;" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Photo))"/>
+        </p>
         <p>
-            Имя пользователя <br />
+            Имя пользователя: <br />
             @Html.DisplayFor(model => model.Email)
         </p>
           <p>
-            Фамилия студента <br />
+            Фамилия студента: <br />
             @Html.DisplayFor(model => model.Surname)
         </p>
          <p>
-            Отчество студента <br />
+            Отчество студента: <br />
             @Html.DisplayFor(model => model.Patronymic)
         </p>
             <p>
-            Группа <br />
+            Группа: <br />
             @Html.DisplayFor(model => model.GroupName, ViewBag.Groups as SelectList)
         </p>
              <p>
-            Специальность <br />
+            Специальность: <br />
             @Html.DisplayFor(model => model.FacultName, ViewBag.Facults as SelectList)
+        </p>
+        <p>
+            Статус: <br />
+            @Html.DisplayFor(model => model.StatusName, ViewBag.Statuss as SelectList)
+        </p>
+          <p>
+            Паспортные данные: <br />
+            @Html.DisplayFor(model => model.Passport)
+        </p>
+          <p>
+            Имя матери: <br />
+            @Html.DisplayFor(model => model.MotherName)
+        </p>
+          <p>
+            Фамилия матери: <br />
+            @Html.DisplayFor(model => model.MotherSurname)
+        </p>
+          <p>
+            Имя отца: <br />
+            @Html.DisplayFor(model => model.FatherName)
+        </p>
+          <p>
+            Фамилия отца: <br />
+            @Html.DisplayFor(model => model.FatherSurname)
         </p>
             </fieldset>

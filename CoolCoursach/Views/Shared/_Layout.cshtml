@@ -26,14 +26,20 @@
                         </li>*@
                              @if(User.IsInRole("admin")|| User.IsInRole("moder")){
                         <li class="nav-item">
-                           <a class = "nav-link text-dark"> @Html.ActionLink("Список учащихся(moder)","ModerPage","Moder")</a>
+                           @*<a class = "nav-link text-dark" @Html.ActionLink("Список учащихся(moder)","ModerPage","Moder", new{@class= "nav-link text-dark"}) *@
+                           <a class = "nav-link text-dark", href="/Moder/ModerPage">Список учащихся(moder)</a>
                         </li>
                              }
                                @if(User.IsInRole("admin")){
                           <li class="nav-item">
-                           <a class = "nav-link text-dark"> @Html.ActionLink("Панель администратора", "AdminPage", "Admin")</a>
+                           @*<a class = "nav-link text-dark" @Html.ActionLink("Панель администратора", "AdminPage", "Admin")></a>*@
+                           <a class = "nav-link text-dark", href="/Admin/AdminPage">Панель администратора</a>
                         </li>
                              }
+                             <li class="nav-item">
+                           <a class = "nav-link text-dark", href="/Account/Logout">Выйти</a>
+                           @*@Html.ActionLink("Выйти", "Logout", "Account")*@
+                        </li>
                       @*  <li class="nav-item">
                             @User.Identity.Name
                         </li>*@

@@ -23,7 +23,7 @@ namespace CoolCoursach.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterModel model)
+        public async Task<IActionResult> Registers(RegisterModel model)
         {
             if (ModelState.IsValid)
             {

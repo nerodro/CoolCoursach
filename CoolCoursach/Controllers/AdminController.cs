@@ -61,7 +61,11 @@ namespace CoolCoursach.Controllers
                 GroupName = user.GroupName,
                 FacultName = user.FacultName,
                 RoleId = user.RoleId,
-                StatusName = user.StatusName
+                StatusName = user.StatusName,
+                FatherSurname = user.FatherSurname,
+                FatherName = user.FatherName,
+                MotherName = user.MotherName,
+                MotherSurname = user.MotherSurname
             };
             if (user.Photo != null)
             {
@@ -97,8 +101,17 @@ namespace CoolCoursach.Controllers
             return RedirectToAction("PersonsList", "Admin");
         }
         [HttpPost]
-        public IActionResult EditPerson(User user)
+        public IActionResult EditPerson(User user, UserViewModel userss)
         {
+            if (userss != null)
+            {
+                byte[] imageData = user.Photo;
+                using (var binaryReader = new BinaryReader(userss.Photo.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)userss.Photo.Length);
+                }
+                user.Photo = imageData;
+            }
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();
             return RedirectToAction("PersonsList", "Admin");
