@@ -81,7 +81,7 @@ namespace CoolCoursach.Controllers
             return RedirectToAction("PersonsList", "Admin");
         }
         [HttpGet]
-        public async Task<IActionResult> EditPersonAsync(int? Id)
+        public IActionResult EditPersonAsync(int? Id)
         {
             FindId(Id: Id);
             User user = _context.Users.Find(Id);
@@ -101,7 +101,7 @@ namespace CoolCoursach.Controllers
             return RedirectToAction("PersonsList", "Admin");
         }
         [HttpPost]
-        public IActionResult EditPerson(User user, UserViewModel userss)
+        public async Task<IActionResult> EditPerson(User user, UserViewModel userss)
         {
             if (userss != null)
             {
@@ -113,7 +113,7 @@ namespace CoolCoursach.Controllers
                 user.Photo = imageData;
             }
             _context.Entry(user).State = EntityState.Modified;
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return RedirectToAction("PersonsList", "Admin");
         }
 

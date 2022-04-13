@@ -26,5 +26,8 @@ namespace CoolCoursach.Models
         public string MotherSurname { get; set; }
         public string FatherName { get; set; }
         public string FatherSurname { get; set; }
+        public string BirthDay { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
     }
 }

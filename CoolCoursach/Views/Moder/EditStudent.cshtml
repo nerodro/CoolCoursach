@@ -5,13 +5,12 @@
 }
 @model CoolCoursach.Models.User
          <form asp-action="EditStudent" asp-controller="Moder" method="post" enctype="multipart/form-data">
-
-    <fieldset>
-        <legend>Редактировать студента</legend>
-
+<div class=containers>
+        <legend style="text-align:center;">Редактировать студента</legend>
+        <div class=Inform>
         <p>
             Имя пользователя <br />
-            @Html.EditorFor(model => model.Email)
+           @Html.EditorFor(model => model.Email)
         </p>
           <p>
             Фамилия студента <br />
@@ -28,6 +27,36 @@
          <p>
             Паспортные данные <br />
             @Html.EditorFor(model => model.Passport)
+        </p>
+         <p>
+            Имя матери <br />
+            @Html.EditorFor(model => model.MotherName)
+        </p>
+         <p>
+            Фамилия матери <br />
+            @Html.EditorFor(model => model.MotherSurname)
+        </p>
+         <p>
+            Имя отца <br />
+            @Html.EditorFor(model => model.FatherName)
+        </p>
+         <p>
+            Фамилия отца <br />
+            @Html.EditorFor(model => model.FatherSurname)
+        </p>
+        </div>
+        <div class=Inform2>
+        <p>
+            Дата рождения: <br />
+            @Html.EditorFor(model => model.BirthDay)
+        </p>
+         <p>
+            Дата поступления: <br />
+            @Html.EditorFor(model => model.StartDate)
+        </p>
+         <p>
+            Дата поступления/отчисления: <br />
+            @Html.EditorFor(model => model.EndDate)
         </p>
         @*<p>
             Роль <br />
@@ -49,8 +78,9 @@
                 <label>Фото</label>
                 <input name="Photo" type="file"class="input1"/>
             </p>
+        </div>
+        </div>
         <p>
             <input type="submit" value="Сохранить" class="btn btn1"/>
         </p>
-        </fieldset>
         </form>

@@ -5,20 +5,19 @@
 }
 @model CoolCoursach.Models.User
 
-
-    <fieldset>
-        <legend>Информация о студенте</legend>
-        <p>
-           @* Фото
-            @Html.DisplayFor(model => model.Photo)
-            <img style="width:80px;height:60px;" src="data:image/jpeg;base64,@Html.DisplayFor((Convert.ToBase64String((model.Photo))))"/>
-            <img style="width:311px;height:311px;" src="data:image/jpeg;base64,@(Convert.ToBase64String(User.Photo))"/>*@
-
-        </p>
-          <p>
-            Фото: <br />
-            <img style="width:80px;height:60px;" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Photo))"/>
-        </p>
+<div class=containers>
+       <legend style="text-align:center;">Информация о студенте</legend>
+       <div class=Photos>
+            @if(Model.Photo != null)
+            {
+            <img style="width:600px;height:600px;" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Photo))"/>
+            }
+            else
+            {  
+             <img style="width:600px;height:600px;" src="/img/blank-profile-picture-973460__340.jpg">
+            }
+        </div>
+        <div class=Inform>
         <p>
             Имя пользователя: <br />
             @Html.DisplayFor(model => model.Email)
@@ -42,11 +41,13 @@
         <p>
             Статус: <br />
             @Html.DisplayFor(model => model.StatusName, ViewBag.Statuss as SelectList)
-        </p>
+        </p> 
           <p>
             Паспортные данные: <br />
             @Html.DisplayFor(model => model.Passport)
         </p>
+        </div>
+         <div class=Inform2>
           <p>
             Имя матери: <br />
             @Html.DisplayFor(model => model.MotherName)
@@ -63,4 +64,21 @@
             Фамилия отца: <br />
             @Html.DisplayFor(model => model.FatherSurname)
         </p>
-            </fieldset>
+         <p>
+            Дата рождения: <br />
+            @Html.DisplayFor(model => model.BirthDay)
+        </p>
+         <p>
+            Дата поступления: <br />
+            @Html.DisplayFor(model => model.StartDate)
+        </p>
+         <p>
+            Дата поступления/отчисления: <br />
+            @Html.DisplayFor(model => model.EndDate)
+        </p>
+        </div>
+        @*<a href="/Home/Index" class="btn btn1">Назад</a>*@
+</div>
+@*<div class="btn btn1">
+@Html.ActionLink("Назад","Index", "Home", new{@style="color:white;text-decoration: none;"})
+</div>*@

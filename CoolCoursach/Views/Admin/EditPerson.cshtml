@@ -25,6 +25,34 @@
             Пароль <br />
             @Html.EditorFor(model => model.Password)
         </p>
+                 <p>
+            Имя матери <br />
+            @Html.EditorFor(model => model.MotherName)
+        </p>
+         <p>
+            Фамилия матери <br />
+            @Html.EditorFor(model => model.MotherSurname)
+        </p>
+         <p>
+            Имя отца <br />
+            @Html.EditorFor(model => model.FatherName)
+        </p>
+         <p>
+            Фамилия отца <br />
+            @Html.EditorFor(model => model.FatherSurname)
+        </p>
+         <p>
+            Дата рождения: <br />
+            @Html.EditorFor(model => model.BirthDay)
+        </p>
+         <p>
+            Дата поступления: <br />
+            @Html.EditorFor(model => model.StartDate)
+        </p>
+         <p>
+            Дата поступления/отчисления: <br />
+            @Html.EditorFor(model => model.EndDate)
+        </p>
         <p>
             Роль <br />
             @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
@@ -39,7 +67,6 @@
         </p>
          <label>Фото</label>
                 <input name="Photo" type="file"class="input1"/>
-            </p>
         <p>
             <input type="submit" value="Сохранить" class="btn btn1"/>
         </p>

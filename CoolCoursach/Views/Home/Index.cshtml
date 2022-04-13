@@ -14,7 +14,7 @@
     <div id="my Dropdown" class="dropdown-content">
         <form method="get">
         <div class="form-inline form-group">
-        <label class="control-label">Имя: </label>
+        <label class="control-label">Имя студента: </></label>
         <input name="Email" class="form-control" />
         <label class="control-label">Фамилия: </label>
         <input name="Surname" class="form-control" />
@@ -24,6 +24,7 @@
         <input name="Passport" class="form-control" />
  
         @*<label class="control-label">Группа: </label>
+        <input name="group" class="form-control" />
         <select name="group" asp-items="Model.Groups" class="form-control"></select>
         <label class="control-label">Специальность: </label>
         <select name="facult" asp-items="Model.Facults" class="form-control"></select>*@
@@ -92,7 +93,9 @@
                 <p>Специальность: @User.FacultName</p>
                 <p>Статус: @User.StatusName</p>
                 <p>Паспортные данные: @User.Passport</p>*@
-                <a class="btn btn-primary" @Html.ActionLink("Подробнее", "PersonalCabinet", "Home", new{Id = User.Id}) ></a>
+                @*<a class="btn btn-primary" @Html.ActionLink("Подробнее", "PersonalCabinet", "Home", new{Id = User.Id})></a>*@
+                <div class="btn btn-primary">@Html.ActionLink("Подробнее", "PersonalCabinet", "Home",
+                new{Id = User.Id}, new{@style="color:white;text-decoration: none;"})</div>
             </div>
         </div>
         </div>

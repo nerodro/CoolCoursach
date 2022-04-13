@@ -53,7 +53,8 @@ namespace CoolCoursach.Controllers
         {
             User users = new User{Email = user.Email,Surname = user.Surname,Patronymic = user.Patronymic,
             Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = 3, StatusName = user.StatusName, Passport = user.Passport,
-            FatherSurname = user.FatherSurname, FatherName = user.FatherName, MotherName = user.MotherName, MotherSurname = user.MotherSurname};
+            FatherSurname = user.FatherSurname, FatherName = user.FatherName, MotherName = user.MotherName, MotherSurname = user.MotherSurname, BirthDay = user.BirthDay,
+            StartDate = user.StartDate, EndDate = user.EndDate};
             if(user.Photo != null)
             {
                 byte[] imageData = null;

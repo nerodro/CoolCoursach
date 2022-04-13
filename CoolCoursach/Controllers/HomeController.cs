@@ -35,7 +35,7 @@ namespace CoolCoursach.Controllers
         }
 
         [Authorize(Roles = "admin, moder,user")]
-        public IActionResult Index(string group,string facult, string Email, string Surname, string Patronymic/*,string facult*/, string Passport)
+        public IActionResult Index(string group,string facult, string Email, string Surname, string Patronymic/*,string facult*/, string Passport, int RoleId)
         {
             IQueryable<User> users = _context.Users.Include(p => p.Group);
             //if (String.IsNullOrEmpty(group))
@@ -65,9 +65,12 @@ namespace CoolCoursach.Controllers
 
             List<Group> groups = _context.Groups.ToList();
             List<Facult> facults = _context.Facults.ToList();
+            //List<User> users1 = _context.Users.FromSqlRaw("Select * from Users where RoleId = 3").ToList();
             // устанавливаем начальный элемент, который позволит выбрать всех
 
             groups.Insert(0, new Group { Name = "Все", Id = 0 });
+            //users1.Insert(0, new User { RoleId = 3 });
+            
             UserListViewModel viewModel = new UserListViewModel
             {
                 Users = users.ToList(),
@@ -79,6 +82,7 @@ namespace CoolCoursach.Controllers
                 //Facults = new SelectList(facults, "Name", "Name")
 
             };
+            //_context.Users.FromSqlRaw("SELECT * FROM Users WHERE RoleId = 3")
             return View(viewModel);
         }
  
