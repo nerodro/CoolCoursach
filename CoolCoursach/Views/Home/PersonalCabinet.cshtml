@@ -19,7 +19,7 @@
         </div>
         <div class=Inform>
         <p>
-            Имя пользователя: <br />
+            Имя студента: <br />
             @Html.DisplayFor(model => model.Email)
         </p>
           <p>
@@ -79,6 +79,8 @@
         </div>
         @*<a href="/Home/Index" class="btn btn1">Назад</a>*@
 </div>
-@*<div class="btn btn1">
-@Html.ActionLink("Назад","Index", "Home", new{@style="color:white;text-decoration: none;"})
-</div>*@
+<div class="row">
+<div class="btn btn-primary">
+@Html.ActionLink("На главную","Index", "Home",new{}, new{@style="color:white;text-decoration: none; "})
+</div>
+</div>

@@ -4,54 +4,66 @@
 @{
 }
 @model CoolCoursach.Models.User
-
-
-    <fieldset>
-        <legend>Удалить человека</legend>
-         <p>
-            Фото: <br />
-              @if(Model.Photo != null)
+<div class=containers>
+        <legend style="text-align:center;">Удалить пользователя</legend>
+    <div class=Photos>
+            @if(Model.Photo != null)
             {
-            <img style="width:80px;height:80px;" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Photo))"/>
+            <img style="width:600px;height:600px;" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Photo))"/>
             }
             else
             {  
-             <img style="width:80px;height:80px;" src="/img/blank-profile-picture-973460__340.jpg">
+             <img style="width:600px;height:600px;" src="/img/blank-profile-picture-973460__340.jpg">
             }
-        </p>
+        </div>
+        <div class=Inform>
         <p>
-            Имя пользователя <br />
+            Имя студента: <br />
             @Html.DisplayFor(model => model.Email)
         </p>
           <p>
-            Фамилия студента <br />
+            Фамилия студента: <br />
             @Html.DisplayFor(model => model.Surname)
         </p>
          <p>
-            Отчество студента <br />
+            Отчество студента: <br />
             @Html.DisplayFor(model => model.Patronymic)
         </p>
-        <p>
-            Пароль <br />
-            @Html.DisplayFor(model => model.Password)
+            <p>
+            Группа: <br />
+            @Html.DisplayFor(model => model.GroupName, ViewBag.Groups as SelectList)
         </p>
+             <p>
+            Специальность: <br />
+            @Html.DisplayFor(model => model.FacultName, ViewBag.Facults as SelectList)
+        </p>
+        <p>
+            Статус: <br />
+            @Html.DisplayFor(model => model.StatusName, ViewBag.Statuss as SelectList)
+        </p> 
           <p>
-            Имя матери <br />
+            Паспортные данные: <br />
+            @Html.DisplayFor(model => model.Passport)
+        </p>
+        </div>
+         <div class=Inform2>
+          <p>
+            Имя матери: <br />
             @Html.DisplayFor(model => model.MotherName)
         </p>
-         <p>
-            Фамилия матери <br />
+          <p>
+            Фамилия матери: <br />
             @Html.DisplayFor(model => model.MotherSurname)
         </p>
-         <p>
-            Имя отца <br />
+          <p>
+            Имя отца: <br />
             @Html.DisplayFor(model => model.FatherName)
         </p>
-         <p>
-            Фамилия отца <br />
+          <p>
+            Фамилия отца: <br />
             @Html.DisplayFor(model => model.FatherSurname)
         </p>
-        <p>
+         <p>
             Дата рождения: <br />
             @Html.DisplayFor(model => model.BirthDay)
         </p>
@@ -63,18 +75,11 @@
             Дата поступления/отчисления: <br />
             @Html.DisplayFor(model => model.EndDate)
         </p>
-        <p>
-            Роль <br />
-            @Html.DisplayFor(model => model.RoleId, ViewBag.Roles as SelectList)
-        </p>
-            <p>
-            Группа <br />
-            @Html.DisplayFor(model => model.GroupName, ViewBag.Groups as SelectList)
-        </p>
              <p>
-            Специальность <br />
-            @Html.DisplayFor(model => model.FacultName, ViewBag.Facults as SelectList)
+            Роль <br />
+            @Html.DisplayFor(model => model.Role, ViewBag.Roles as SelectList)
         </p>
+        </div>
          @using (Html.BeginForm())
         {
         <p>
@@ -82,4 +87,5 @@
         </p>
     
         }
-            </fieldset>
+        </div>
+

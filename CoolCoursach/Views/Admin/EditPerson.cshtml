@@ -65,8 +65,9 @@
             Специальность <br />
             @Html.DropDownListFor(model => model.FacultName, ViewBag.Facults as SelectList)
         </p>
-         <label>Фото</label>
-                <input name="Photo" type="file"class="input1"/>
+         @*<label>Фото</label>
+         <input name="Photo" type="file"class="input1"/>
+         @Html.EditorFor(model => model.Photo)*@
         <p>
             <input type="submit" value="Сохранить" class="btn btn1"/>
         </p>

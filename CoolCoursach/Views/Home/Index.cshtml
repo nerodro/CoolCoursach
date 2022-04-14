@@ -5,7 +5,7 @@
 @model CoolCoursach.Models.UserListViewModel
 
 <div class="text-center">
-    <h3 class="display-4">Добро пожаловать на сайт для студентов и преподавателей</h3>
+    @*<h3 class="display-4">Добро пожаловать на сайт для студентов и преподавателей</h3>*@
              @*@Html.ActionLink("Выйти", "Logout", "Account")*@
 
 </div>
@@ -24,7 +24,6 @@
         <input name="Passport" class="form-control" />
  
         @*<label class="control-label">Группа: </label>
-        <input name="group" class="form-control" />
         <select name="group" asp-items="Model.Groups" class="form-control"></select>
         <label class="control-label">Специальность: </label>
         <select name="facult" asp-items="Model.Facults" class="form-control"></select>*@
@@ -68,7 +67,7 @@
 </table>*@
 <div class="row">
 @foreach(var User in Model.Users){
-
+    @if(User.RoleId == 3){
         <div class="col-sm-4">
        <div class="card mb-3">
             <div class="card-header">
@@ -99,5 +98,6 @@
             </div>
         </div>
         </div>
-}
+        }
+    }
 </div>

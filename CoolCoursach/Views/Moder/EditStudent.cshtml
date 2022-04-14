@@ -9,54 +9,54 @@
         <legend style="text-align:center;">Редактировать студента</legend>
         <div class=Inform>
         <p>
-            Имя пользователя <br />
-           @Html.EditorFor(model => model.Email)
+            Имя студента <br />
+           @Html.EditorFor(model => model.Email, new{htmlAttributes = new{@class="form-control"}})
         </p>
           <p>
             Фамилия студента <br />
-            @Html.EditorFor(model => model.Surname)
+            @Html.EditorFor(model => model.Surname, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Отчество студента <br />
-            @Html.EditorFor(model => model.Patronymic)
+            @Html.EditorFor(model => model.Patronymic, new{htmlAttributes = new{@class="form-control"}})
         </p>
-        <p>
+      @*  <p>
             Пароль <br />
-            @Html.EditorFor(model => model.Password)
-        </p>
+            @Html.EditorFor(model => model.Password, new{htmlAttributes = new{@class="form-control", @type="password"}})
+        </p>*@
          <p>
             Паспортные данные <br />
-            @Html.EditorFor(model => model.Passport)
+            @Html.EditorFor(model => model.Passport, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Имя матери <br />
-            @Html.EditorFor(model => model.MotherName)
+            @Html.EditorFor(model => model.MotherName, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Фамилия матери <br />
-            @Html.EditorFor(model => model.MotherSurname)
+            @Html.EditorFor(model => model.MotherSurname, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Имя отца <br />
-            @Html.EditorFor(model => model.FatherName)
+            @Html.EditorFor(model => model.FatherName, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Фамилия отца <br />
-            @Html.EditorFor(model => model.FatherSurname)
+            @Html.EditorFor(model => model.FatherSurname, new{htmlAttributes = new{@class="form-control"}})
         </p>
         </div>
         <div class=Inform2>
         <p>
             Дата рождения: <br />
-            @Html.EditorFor(model => model.BirthDay)
+            @Html.EditorFor(model => model.BirthDay, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Дата поступления: <br />
-            @Html.EditorFor(model => model.StartDate)
+            @Html.EditorFor(model => model.StartDate, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Дата поступления/отчисления: <br />
-            @Html.EditorFor(model => model.EndDate)
+            @Html.EditorFor(model => model.EndDate, new{htmlAttributes = new{@class="form-control"}})
         </p>
         @*<p>
             Роль <br />
@@ -64,7 +64,7 @@
         </p>*@
             <p>
             Группа <br />
-            @Html.DropDownListFor(model => model.GroupName, ViewBag.Groups as SelectList)
+            @Html.DropDownListFor(model => model.GroupName, ViewBag.Groups as SelectList,new{htmlAttributes = new{@class="btn btn-secondary dropdown-toggle"}})
         </p>
              <p>
             Специальность <br />
@@ -76,11 +76,16 @@
         </p>
          <p>
                 <label>Фото</label>
-                <input name="Photo" type="file"class="input1"/>
+                <input name="Photo" type="file"class="form-control" aria-label="file example" />
             </p>
+
         </div>
         </div>
+            <div class="containers">
+            <div class="Inform">
         <p>
             <input type="submit" value="Сохранить" class="btn btn1"/>
         </p>
+        </div>
+        </div>
         </form>

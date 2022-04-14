@@ -4,163 +4,67 @@
 @{
 }
 @model CoolCoursach.Models.User
-@*<div class=containers>
-        <legend>Новый студент</legend>
-        <form asp-action="AddStudent" asp-controller="Moder" method="post" enctype="multipart/form-data">
-            <div class=formstd>
-            <p>
-                <label>Имя</label>
-                <input name="Email" class="input1"/>
-                </p>
-            <p>
-                <label>Фамилия</label>
-                <input name="Surname" class="input1"/>
-            </p>
-             <p>
-                <label>Отчество</label>
-                <input name="Patronymic" class="input1"/>
-            </p>
-             <p>
-                <label>Фото</label>
-                <input name="Photo" type="file"class="input1"/>
-            </p>
-             <p>
-                <label>Пароль</label>
-                <input name="Password" class="input1"/>
-            </p>
-              <p>
-                <label>Паспортные данные</label>
-                <input name="Passport" class="input1"/>
-            </p>
-            <p>
-                <label>Имя матери</label>
-                <input name="MotherName" class="input1"/>
-            </p>
-            <p>
-                <label>Фамилия матери</label>
-                <input name="MotherSurname" class="input1"/>
-            </p>
-            </div>
-            <div class=Inform>
-             <p>
-                <label>Имя отца</label>
-                <input name="FatherName" class="input1"/>
-            </p>
-              <p>
-                <label>Фамилия отца</label>
-                <input name="FatherSurname" class="input1"/>
-            </p>
-            <p>
-                <label>Дата рождения</label>
-                <input name="BirthDay" class="input1"/>
-            </p>
-            <p>
-                <label>Дата поступления</label>
-                <input name="StartDate" class="input1"/>
-            </p>
-            <p>
-                <label>Дата выпуска/отчисления</label>
-                <input name="EndDate" class="input1"/>
-            </p>
-                  @*  <p>
-            Email пользователя <br />
-            @Html.EditorFor(model => model.Email)
-        </p>
-          <p>
-            Фамилия студента <br />
-            @Html.EditorFor(model => model.Surname)
-        </p>
-         <p>
-            Отчество студента <br />
-            @Html.EditorFor(model => model.Patronymic)
-        </p>
-        <p>
-            Пароль <br />
-            @Html.EditorFor(model => model.Password)
-        </p>*@
-       @* <p>
-            Роль <br />
-            @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
-        </p>*@
-        @*    <p>
-            Группа <br />
-            @Html.DropDownListFor(model => model.GroupName, ViewBag.Groups as SelectList)
-        </p>
-             <p>
-            Специальность <br />
-            @Html.DropDownListFor(model => model.FacultName, ViewBag.Facults as SelectList)
-        </p>
-             <p>
-            Статус студента <br />
-            @Html.DropDownListFor(model => model.StatusName, ViewBag.Status as SelectList)
-        </p>
-        </div>
-        <p>
-            <input type="submit" value="Добавить нового студента" class="btn btn1"/>
-        </p>
-        </form>
-        </div>*@
          <form asp-action="AddStudent" asp-controller="Moder" method="post" enctype="multipart/form-data">
         <div class=containers>
        <legend style="text-align:center;">Новый студент</legend>
         <div class=Inform>
        <p>
                 <label>Имя</label>
-                <input name="Email" class="input1"/>
+                <input name="Email" class="form-control" id="validationTooltip01" required/>
                 </p>
             <p>
                 <label>Фамилия</label>
-                <input name="Surname" class="input1"/>
+                <input name="Surname" class="form-control" id="validationTooltip01" required/>
             </p>
              <p>
                 <label>Отчество</label>
-                <input name="Patronymic" class="input1"/>
+                <input name="Patronymic" class="form-control" id="validationTooltip01" required/>
             </p>
              <p>
                 <label>Фото</label>
-                <input name="Photo" type="file"class="input1"/>
+                <input name="Photo" type="file"class="form-control"/>
             </p>
-             <p>
+           @*  <p>
                 <label>Пароль</label>
-                <input name="Password" class="input1"/>
-            </p>
+                <input name="Password" class="form-control" id="validationTooltip01" type="password" required/>
+            </p>*@
               <p>
                 <label>Паспортные данные</label>
-                <input name="Passport" class="input1"/>
+                <input name="Passport" class="form-control" id="validationTooltip01" required/>
             </p>
             <p>
                 <label>Имя матери</label>
-                <input name="MotherName" class="input1"/>
+                <input name="MotherName" class="form-control"/>
             </p>
             <p>
                 <label>Фамилия матери</label>
-                <input name="MotherSurname" class="input1"/>
+                <input name="MotherSurname" class="form-control"/>
             </p>
             </div>
          <div class=Inform2>
            <p>
                 <label>Имя отца</label>
-                <input name="FatherName" class="input1"/>
+                <input name="FatherName" class="form-control"/>
             </p>
               <p>
                 <label>Фамилия отца</label>
-                <input name="FatherSurname" class="input1"/>
+                <input name="FatherSurname" class="form-control"/>
             </p>
             <p>
                 <label>Дата рождения</label>
-                <input name="BirthDay" class="input1"/>
+                <input name="BirthDay" class="form-control" id="validationTooltip01" required/>
             </p>
             <p>
                 <label>Дата поступления</label>
-                <input name="StartDate" class="input1"/>
+                <input name="StartDate" class="form-control" id="validationTooltip01" required/>
             </p>
             <p>
                 <label>Дата выпуска/отчисления</label>
-                <input name="EndDate" class="input1"/>
+                <input name="EndDate" class="form-control"/>
             </p>
              <p>
             Группа <br />
-            @Html.DropDownListFor(model => model.GroupName, ViewBag.Groups as SelectList)
+          @Html.DropDownListFor(model => model.GroupName, ViewBag.Groups as SelectList)
         </p>
              <p>
             Специальность <br />
@@ -171,8 +75,10 @@
             @Html.DropDownListFor(model => model.StatusName, ViewBag.Status as SelectList)
         </p>
         </div>
-        @*<a href="/Home/Index" class="btn btn1">Назад</a>*@
         </div>
-<br />
-    <input type="submit" value="Добавить нового студента" class="btn btn1"/>
+        <div class="containers">
+            <div class="Inform">
+        <input style="text-align:center;" type="submit" value="Добавить нового студента" class="btn btn1"/>
+        </div>
+        </div>
         </form>

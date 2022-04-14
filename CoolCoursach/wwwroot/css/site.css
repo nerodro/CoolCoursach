@@ -207,6 +207,7 @@ td {
     justify-content:space-around;
 }
 
+
 .formstd {
     display: flex;
     align-self: center;
@@ -231,8 +232,7 @@ td {
     align-self: center;
 }
 
-.buttons{
+.buttonsz{
     display:flex;
-    align-items:flex-end;
     align-self:center;
 }

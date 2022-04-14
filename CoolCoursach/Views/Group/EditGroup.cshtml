@@ -8,14 +8,14 @@
  @using (Html.BeginForm())
         {
     <fieldset>
-        <legend>Новая группа</legend>
+        <legend>Редактирование группы</legend>
 
         <p>
-            Email пользователя <br />
+            Название группы <br />
             @Html.EditorFor(model => model.Name)
         </p>
         <p>
-            <input type="submit" value="Добавить нового пользователя" class="btn btn1"/>
+            <input type="submit" value="Изменить группу" class="btn btn1"/>
         </p>
         </fieldset>
         }

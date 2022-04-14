@@ -93,8 +93,13 @@ namespace CoolCoursach.Controllers
             //Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
             //if (userRole != null)
             //    user.Role = userRole;
+            user.Photo = user.Photo;
             user.RoleId = 3;
-            if (userss.Photo != null)
+            if (userss.Photo == null)
+            {
+                user.Photo = user.Photo;
+            }
+            else
             {
                 byte[] imageData = user.Photo;
                 using (var binaryReader = new BinaryReader(userss.Photo.OpenReadStream()))
@@ -102,10 +107,6 @@ namespace CoolCoursach.Controllers
                     imageData = binaryReader.ReadBytes((int)userss.Photo.Length);
                 }
                 user.Photo = imageData;
-            }
-            else
-            {
-                userss.Photo = userss.Photo;
             }
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();
