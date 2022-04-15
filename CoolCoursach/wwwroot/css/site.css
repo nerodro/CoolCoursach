@@ -199,12 +199,13 @@ td {
     display: block;
 }
 
-.containers{
-    display:flex;
+.containers {
+    display: flex;
     align-items: flex-start;
     flex-direction: row;
-    flex-wrap:wrap;
-    justify-content:space-around;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 200px;
 }
 
 
@@ -224,15 +225,25 @@ td {
 .Inform {
     display: flex;
     flex-direction: column;
-    align-self:center;
+    align-self: center;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    font-size:medium;
 }
 .Inform2 {
     display: flex;
     flex-direction: column;
     align-self: center;
+    margin: 0 10px;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    font-size: medium;
 }
 
 .buttonsz{
     display:flex;
     align-self:center;
+}
+
+.imgs {
+    border: 0.5px #808080;
+    border-radius: 20px;
 }

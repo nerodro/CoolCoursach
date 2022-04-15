@@ -44,6 +44,14 @@
             Фамилия отца <br />
             @Html.EditorFor(model => model.FatherSurname, new{htmlAttributes = new{@class="form-control"}})
         </p>
+        <p>
+            Имя законного представителя <br />
+            @Html.EditorFor(model => model.ReletedName, new{htmlAttributes = new{@class="form-control"}})
+        </p>
+         <p>
+            Фамилия законного представителя <br />
+            @Html.EditorFor(model => model.ReletedSurname, new{htmlAttributes = new{@class="form-control"}})
+        </p>
         </div>
         <div class=Inform2>
         <p>
@@ -77,6 +85,7 @@
          <p>
                 <label>Фото</label>
                 <input name="Photo" type="file"class="form-control" aria-label="file example" />
+               @* @Html.EditorFor(model => model.Photo, new{htmlAttributes = new{@type="file"}})*@
             </p>
 
         </div>
@@ -86,6 +95,9 @@
         <p>
             <input type="submit" value="Сохранить" class="btn btn1"/>
         </p>
+        </div>
+         <div class="Inform">
+        <a class="btn btn1" href="/Moder/ModerPage">Назад</a>
         </div>
         </div>
         </form>

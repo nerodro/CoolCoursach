@@ -4,7 +4,7 @@
 @{
 }
 @model CoolCoursach.Models.User
-<div class=containers>
+<div class=containers style="margin:auto">
         <legend style="text-align:center;">Удалить пользователя</legend>
     <div class=Photos>
             @if(Model.Photo != null)
@@ -46,7 +46,7 @@
             @Html.DisplayFor(model => model.Passport)
         </p>
         </div>
-         <div class=Inform2>
+         <div class=Inform>
           <p>
             Имя матери: <br />
             @Html.DisplayFor(model => model.MotherName)
@@ -62,6 +62,14 @@
           <p>
             Фамилия отца: <br />
             @Html.DisplayFor(model => model.FatherSurname)
+        </p>
+         <p>
+            Имя законного представителя<br />
+            @Html.DisplayFor(model => model.ReletedName)
+        </p>
+        <p>
+            Фамилия законного представителя<br />
+            @Html.DisplayFor(model => model.ReletedSurname)
         </p>
          <p>
             Дата рождения: <br />
@@ -83,9 +91,12 @@
          @using (Html.BeginForm())
         {
         <p>
-            <input type="submit" value="Удалить студента" class="btn btn1"/>
+            <input type="submit" value="Удалить пользователя" class="btn btn1"/>
         </p>
-    
+        
         }
+        <div class="Inform">
+        <a class="btn btn1" href="/Admin/PersonsList">Назад</a>
+        </div>
         </div>
 

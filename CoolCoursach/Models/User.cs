@@ -32,6 +32,7 @@ namespace CoolCoursach.Models
         public string BirthDay { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
-
+        public string ReletedName { get; set; }
+        public string ReletedSurname { get; set; }
     }
 }

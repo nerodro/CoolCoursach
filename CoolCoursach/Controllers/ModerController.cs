@@ -54,7 +54,7 @@ namespace CoolCoursach.Controllers
             User users = new User{Email = user.Email,Surname = user.Surname,Patronymic = user.Patronymic,
             Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = 3, StatusName = user.StatusName, Passport = user.Passport,
             FatherSurname = user.FatherSurname, FatherName = user.FatherName, MotherName = user.MotherName, MotherSurname = user.MotherSurname, BirthDay = user.BirthDay,
-            StartDate = user.StartDate, EndDate = user.EndDate};
+            StartDate = user.StartDate, EndDate = user.EndDate, ReletedName = user.ReletedName, ReletedSurname = user.ReletedSurname};
             if(user.Photo != null)
             {
                 byte[] imageData = null;
@@ -95,11 +95,7 @@ namespace CoolCoursach.Controllers
             //    user.Role = userRole;
             user.Photo = user.Photo;
             user.RoleId = 3;
-            if (userss.Photo == null)
-            {
-                user.Photo = user.Photo;
-            }
-            else
+            if (userss != null)
             {
                 byte[] imageData = user.Photo;
                 using (var binaryReader = new BinaryReader(userss.Photo.OpenReadStream()))
@@ -107,6 +103,10 @@ namespace CoolCoursach.Controllers
                     imageData = binaryReader.ReadBytes((int)userss.Photo.Length);
                 }
                 user.Photo = imageData;
+            }
+            else
+            {
+                user.Photo = user.Photo;
             }
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();

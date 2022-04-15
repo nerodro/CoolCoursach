@@ -7,51 +7,63 @@
 
 <form asp-action="EditPerson" asp-controller="Admin" method="post" enctype="multipart/form-data">
     <fieldset>
+        <div class=containers>
+            <div class = "Inform">
         <legend>Редактировать человека</legend>
 
         <p>
             Имя пользователя <br />
-            @Html.EditorFor(model => model.Email)
+            @Html.EditorFor(model => model.Email, new{htmlAttributes = new{@class="form-control"}})
         </p>
           <p>
             Фамилия студента <br />
-            @Html.EditorFor(model => model.Surname)
+            @Html.EditorFor(model => model.Surname, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Отчество студента <br />
-            @Html.EditorFor(model => model.Patronymic)
+            @Html.EditorFor(model => model.Patronymic, new{htmlAttributes = new{@class="form-control"}})
         </p>
         <p>
             Пароль <br />
-            @Html.EditorFor(model => model.Password)
+            @Html.EditorFor(model => model.Password, new{htmlAttributes = new{@class="form-control"}})
         </p>
                  <p>
             Имя матери <br />
-            @Html.EditorFor(model => model.MotherName)
+            @Html.EditorFor(model => model.MotherName, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Фамилия матери <br />
-            @Html.EditorFor(model => model.MotherSurname)
+            @Html.EditorFor(model => model.MotherSurname, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Имя отца <br />
-            @Html.EditorFor(model => model.FatherName)
+            @Html.EditorFor(model => model.FatherName, new{htmlAttributes = new{@class="form-control"}})
         </p>
+        </div>
+        <div class="Inform">
          <p>
             Фамилия отца <br />
-            @Html.EditorFor(model => model.FatherSurname)
+            @Html.EditorFor(model => model.FatherSurname, new{htmlAttributes = new{@class="form-control"}})
+        </p>
+            <p>
+            Имя законного представителя <br />
+            @Html.EditorFor(model => model.ReletedName, new{htmlAttributes = new{@class="form-control"}})
+        </p>
+         <p>
+            Фамилия законного представителя <br />
+            @Html.EditorFor(model => model.ReletedSurname, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Дата рождения: <br />
-            @Html.EditorFor(model => model.BirthDay)
+            @Html.EditorFor(model => model.BirthDay, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Дата поступления: <br />
-            @Html.EditorFor(model => model.StartDate)
+            @Html.EditorFor(model => model.StartDate, new{htmlAttributes = new{@class="form-control"}})
         </p>
          <p>
             Дата поступления/отчисления: <br />
-            @Html.EditorFor(model => model.EndDate)
+            @Html.EditorFor(model => model.EndDate, new{htmlAttributes = new{@class="form-control"}})
         </p>
         <p>
             Роль <br />
@@ -65,11 +77,19 @@
             Специальность <br />
             @Html.DropDownListFor(model => model.FacultName, ViewBag.Facults as SelectList)
         </p>
-         @*<label>Фото</label>
-         <input name="Photo" type="file"class="input1"/>
-         @Html.EditorFor(model => model.Photo)*@
+         <label>Фото</label>
+         <input name="Photo" type="file"class="form-control"/>
+         </div>
+         </div>
+         <div class=containers>
+            <div class = "Inform">
         <p>
             <input type="submit" value="Сохранить" class="btn btn1"/>
         </p>
+        </div>
+        <div class="Inform">
+        <a class="btn btn1" href="/Admin/PersonsList">Назад</a>
+        </div>
+        </div>
         </fieldset>
         </form>

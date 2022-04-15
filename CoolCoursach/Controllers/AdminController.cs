@@ -65,7 +65,9 @@ namespace CoolCoursach.Controllers
                 FatherSurname = user.FatherSurname,
                 FatherName = user.FatherName,
                 MotherName = user.MotherName,
-                MotherSurname = user.MotherSurname
+                MotherSurname = user.MotherSurname,
+                ReletedName = user.ReletedName,
+                ReletedSurname = user.ReletedSurname
             };
             if (user.Photo != null)
             {
@@ -111,6 +113,10 @@ namespace CoolCoursach.Controllers
                     imageData = binaryReader.ReadBytes((int)userss.Photo.Length);
                 }
                 user.Photo = imageData;
+            }
+            else
+            {
+                user.Photo = user.Photo;
             }
             _context.Entry(user).State = EntityState.Modified;
             await _context.SaveChangesAsync();

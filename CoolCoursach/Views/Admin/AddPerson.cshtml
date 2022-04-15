@@ -5,9 +5,10 @@
 }
 @model CoolCoursach.Models.User
     <fieldset>
-        <legend>Новый человек на сайте</legend>
+       
         <form asp-action="AddPerson" asp-controller="Admin" method="post" enctype="multipart/form-data">
             <div class=containers>
+                 <legend style="text-align:center;">Новый пользователь</legend>
             <div class = "Inform">
             <p>
                 <label>Имя</label>
@@ -42,10 +43,18 @@
                 <input name="FatherName" class="form-control"/>
             </p>
             </div>
-            <div class="Inform2">
+            <div class="Inform">
               <p>
                 <label>Фамилия отца</label>
                 <input name="FatherSurname" class="form-control"/>
+            </p>
+              <p>
+                <label>Имя законного представителя</label>
+                <input name="ReletedName" class="form-control" />
+            </p>
+            <p>
+                <label>Фамилия законного представителя</label>
+                <input name="ReletedSurname" class="form-control" />
             </p>
             <p>
                 <label>Дата рождения</label>
@@ -99,6 +108,9 @@
         <p>
             <input type="submit" value="Добавить нового пользователя"class="btn btn1" />
         </p>
+        </div>
+        <div class="Inform">
+        <a class="btn btn1" href="/Admin/PersonsList">Назад</a>
         </div>
         </div>
         </form>
