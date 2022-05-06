@@ -67,7 +67,17 @@ namespace CoolCoursach.Controllers
                 MotherName = user.MotherName,
                 MotherSurname = user.MotherSurname,
                 ReletedName = user.ReletedName,
-                ReletedSurname = user.ReletedSurname
+                ReletedSurname = user.ReletedSurname,
+                Adress = user.Adress,
+                MotherPhone = user.MotherPhone,
+                FatherPhone = user.FatherPhone,
+                ReletedPhone = user.ReletedPhone,
+                MotherWork = user.MotherWork,
+                MotherPosition = user.MotherPosition,
+                FatherPosition = user.FatherPosition,
+                FatherrWork = user.FatherrWork,
+                ReleatedPosition = user.ReleatedPosition,
+                ReleatedWork = user.ReleatedWork,
             };
             if (user.Photo != null)
             {
@@ -96,7 +106,7 @@ namespace CoolCoursach.Controllers
                 SelectList facults = new SelectList(_context.Facults, "Name", "Name");
                 ViewBag.Facults = facults;
                 SelectList status = new SelectList(_context.Statuss, "Name", "Name");
-                ViewBag.Facults = status;
+                ViewBag.Status = status;
                 //Role userRole = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "user");
                 return View(user);
             }
@@ -105,7 +115,7 @@ namespace CoolCoursach.Controllers
         [HttpPost]
         public async Task<IActionResult> EditPerson(User user, UserViewModel userss)
         {
-            if (userss != null)
+            if (user.Photo != null)
             {
                 byte[] imageData = user.Photo;
                 using (var binaryReader = new BinaryReader(userss.Photo.OpenReadStream()))

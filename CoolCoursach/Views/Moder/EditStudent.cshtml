@@ -10,61 +10,112 @@
         <div class=Inform>
         <p>
             Имя студента <br />
-           @Html.EditorFor(model => model.Email, new{htmlAttributes = new{@class="form-control"}})
+           @Html.EditorFor(model => model.Email, new{htmlAttributes = new{@class="form-control"}, @pattern="[А-Яа-яЁё]{2,26}"})
         </p>
           <p>
             Фамилия студента <br />
-            @Html.EditorFor(model => model.Surname, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.Surname, new{htmlAttributes = new{@class="form-control", @pattern="[А-Яа-яЁё]{2,26}"}})
         </p>
          <p>
             Отчество студента <br />
-            @Html.EditorFor(model => model.Patronymic, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.Patronymic, new{htmlAttributes = new{@class="form-control", @pattern="[А-Яа-яЁё]{2,26}"}})
         </p>
       @*  <p>
             Пароль <br />
             @Html.EditorFor(model => model.Password, new{htmlAttributes = new{@class="form-control", @type="password"}})
         </p>*@
+          <p>
+            Номер телефона <br />
+            @Html.EditorFor(model => model.PhoneNumber, new{htmlAttributes = new{@class="form-control",@pattern="8{1}[0-9]{10}"}})
+        </p>
          <p>
             Паспортные данные <br />
-            @Html.EditorFor(model => model.Passport, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.Passport, new{htmlAttributes = new{@class="form-control",@pattern="[0-9 0-9 0-9]{12}"}})
+        </p>
+        <p>
+            Адрес проживания <br />
+            @Html.EditorFor(model => model.Adress, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё0-9\\s.]"}})
         </p>
          <p>
             Имя матери <br />
-            @Html.EditorFor(model => model.MotherName, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.MotherName, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё]{2,26}"}})
         </p>
          <p>
             Фамилия матери <br />
-            @Html.EditorFor(model => model.MotherSurname, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.MotherSurname, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё]{2,26}"}})
+        </p>
+        <p>
+            Номер телефона матери <br />
+            @Html.EditorFor(model => model.MotherPhone, new{htmlAttributes = new{@class="form-control",@pattern="8{1}[0-9]{10}"}})
+        </p>
+                                      </div>
+        <div class=Inform>
+        <p>
+
+            Место работы матери <br />
+            @Html.EditorFor(model => model.MotherWork, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё0-9\\s.]"}})
+        </p>
+
+        <p>
+            Должность матери матери <br />
+            @Html.EditorFor(model => model.MotherPosition, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё0-9\\s.]"}})
         </p>
          <p>
             Имя отца <br />
-            @Html.EditorFor(model => model.FatherName, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.FatherName, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё]{2,26}"}})
         </p>
          <p>
             Фамилия отца <br />
-            @Html.EditorFor(model => model.FatherSurname, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.FatherSurname, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё]{2,26}"}})
+        </p>
+        <p>
+            Номер телефона отца <br />
+            @Html.EditorFor(model => model.FatherPhone, new{htmlAttributes = new{@class="form-control",@pattern="8{1}[0-9]{10}"}})
+        </p>
+        <p>
+            Место работы отца <br />
+            @Html.EditorFor(model => model.FatherrWork, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё0-9\\s.]"}})
+        </p>
+        <p>
+            Должность отца <br />
+            @Html.EditorFor(model => model.FatherPosition, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё0-9\\s.]"}})
         </p>
         <p>
             Имя законного представителя <br />
-            @Html.EditorFor(model => model.ReletedName, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.ReletedName, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё]{2,26}"}})
         </p>
          <p>
             Фамилия законного представителя <br />
-            @Html.EditorFor(model => model.ReletedSurname, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.ReletedSurname, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё]{2,26}"}})
         </p>
-        </div>
-        <div class=Inform2>
+                          </div>
+        <div class=Inform>
+        <p>
+            Номер телефона законного представителя <br />
+            @Html.EditorFor(model => model.ReletedPhone, new{htmlAttributes = new{@class="form-control",@pattern="8{1}[0-9]{10}"}})
+        </p>
+
+        <p>
+            Место работы законного представителя <br />
+            @Html.EditorFor(model => model.ReleatedWork, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё0-9\\s.]"}})
+        </p>
+
+        <p>
+            Должность законного представителя <br />
+            @Html.EditorFor(model => model.ReleatedPosition, new{htmlAttributes = new{@class="form-control",@pattern="[А-Яа-яЁё0-9\\s.]"}})
+        </p>
+        
         <p>
             Дата рождения: <br />
-            @Html.EditorFor(model => model.BirthDay, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.BirthDay, new{htmlAttributes = new{@class="form-control",@pattern="[0-9/0-9/0-9]{10}"}})
         </p>
          <p>
             Дата поступления: <br />
-            @Html.EditorFor(model => model.StartDate, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.StartDate, new{htmlAttributes = new{@class="form-control",@pattern="[0-9/0-9/0-9]{10}"}})
         </p>
          <p>
             Дата поступления/отчисления: <br />
-            @Html.EditorFor(model => model.EndDate, new{htmlAttributes = new{@class="form-control"}})
+            @Html.EditorFor(model => model.EndDate, new{htmlAttributes = new{@class="form-control",@pattern="[0-9/0-9/0-9]{10}"}})
         </p>
         @*<p>
             Роль <br />
@@ -90,7 +141,7 @@
 
         </div>
         </div>
-            <div class="containers">
+            <div class="containers_btns">
             <div class="Inform">
         <p>
             <input type="submit" value="Сохранить" class="btn btn1"/>

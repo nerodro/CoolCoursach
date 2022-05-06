@@ -12,12 +12,12 @@
         <div class="Inform">
         <div class="form-group">
             <label asp-for="Email" style="font-family:Arial, sans-serif">Введите Имя</label>
-            <input type="text" asp-for="Email" class="input1" />
+            <input type="text" asp-for="Email" class="input1" pattern="[А-Яа-яЁёA-Za-z]{2,26}" />
             <span asp-validation-for="Email" />
         </div>
         <div class="form-group">
             <label asp-for="Password" style="font-family:Arial, sans-serif">Введите пароль</label>
-            <input asp-for="Password" class="input1"  />
+            <input asp-for="Password" class="input1" pattern="[А-ЯA-Z]+[А-Яа-яЁё0-9A-Za-z!#$%]{6,26}"/>
             <span asp-validation-for="Password" />
         </div>
         <div class="form-group">

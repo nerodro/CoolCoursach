@@ -54,7 +54,11 @@ namespace CoolCoursach.Controllers
             User users = new User{Email = user.Email,Surname = user.Surname,Patronymic = user.Patronymic,
             Password = user.Password, GroupName = user.GroupName, FacultName = user.FacultName, RoleId = 3, StatusName = user.StatusName, Passport = user.Passport,
             FatherSurname = user.FatherSurname, FatherName = user.FatherName, MotherName = user.MotherName, MotherSurname = user.MotherSurname, BirthDay = user.BirthDay,
-            StartDate = user.StartDate, EndDate = user.EndDate, ReletedName = user.ReletedName, ReletedSurname = user.ReletedSurname};
+            StartDate = user.StartDate, EndDate = user.EndDate, ReletedName = user.ReletedName, ReletedSurname = user.ReletedSurname, PhoneNumber = user.PhoneNumber,
+            Adress = user.Adress, MotherPhone = user.MotherPhone, FatherPhone = user.FatherPhone, ReletedPhone = user.ReletedPhone, MotherWork = user.MotherWork, 
+            MotherPosition = user.MotherPosition, FatherPosition = user.FatherPosition, FatherrWork = user.FatherrWork, ReleatedPosition = user.ReleatedPosition, 
+            ReleatedWork = user.ReleatedWork,
+            };
             if(user.Photo != null)
             {
                 byte[] imageData = null;
@@ -95,7 +99,7 @@ namespace CoolCoursach.Controllers
             //    user.Role = userRole;
             user.Photo = user.Photo;
             user.RoleId = 3;
-            if (userss != null)
+            if (user.Photo != null)
             {
                 byte[] imageData = user.Photo;
                 using (var binaryReader = new BinaryReader(userss.Photo.OpenReadStream()))
@@ -106,7 +110,7 @@ namespace CoolCoursach.Controllers
             }
             else
             {
-                user.Photo = user.Photo;
+                userss.Photo = userss.Photo;
             }
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();

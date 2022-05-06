@@ -5,7 +5,7 @@
 }
 @model CoolCoursach.Models.User
 
-<div class=containers style="margin:auto;">
+<div class=containers style="margin: 0 100px;">
        <legend style="text-align:center;">Информация о студенте</legend>
        <div class=Photos>
            <div class="imgs">
@@ -20,7 +20,7 @@
             </div>
         </div>
         <br /> <br />
-        <div class=Inform>
+      <div class=Inform>
         <p>
             Имя студента: <br />
             @Html.DisplayFor(model => model.Email)
@@ -49,8 +49,18 @@
             Паспортные данные: <br />
             @Html.DisplayFor(model => model.Passport)
         </p>
-        </div>
-         <div class=Inform2>
+        <p>
+            Адрес проживания: <br />
+            @Html.DisplayFor(model => model.Adress)
+        </p>
+        <p>
+            Номер телефона: <br />
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </p>
+                        </div>
+                   </div>
+                <div class="containers">
+        <div class=Inform>
           <p>
             Имя матери: <br />
             @Html.DisplayFor(model => model.MotherName)
@@ -58,6 +68,21 @@
           <p>
             Фамилия матери: <br />
             @Html.DisplayFor(model => model.MotherSurname)
+        </p>
+
+          <p>
+            Номер телефона матери: <br />
+            @Html.DisplayFor(model => model.MotherPhone)
+        </p>
+          <p>
+            Место работы матери: <br />
+            @Html.DisplayFor(model => model.MotherWork)
+        </p>
+        </div>
+        <div class=Inform>
+          <p>
+            Должность матери: <br />
+            @Html.DisplayFor(model => model.MotherPosition)
         </p>
           <p>
             Имя отца: <br />
@@ -67,24 +92,54 @@
             Фамилия отца: <br />
             @Html.DisplayFor(model => model.FatherSurname)
         </p>
-        <p>
-            Имя законного представителя<br />
+         <p>
+            Номер телефона отца: <br />
+            @Html.DisplayFor(model => model.FatherPhone)
+        </p>
+                </div>
+        <div class=Inform>
+         <p>
+            Место работы отца: <br />
+            @Html.DisplayFor(model => model.FatherrWork)
+        </p>
+         <p>
+            Должность отца: <br />
+            @Html.DisplayFor(model => model.FatherPosition)
+        </p>
+         <p>
+            Имя законного представителя: <br />
             @Html.DisplayFor(model => model.ReletedName)
         </p>
         <p>
-            Фамилия законного представителя<br />
+            Фамилия законного представителя: <br />
             @Html.DisplayFor(model => model.ReletedSurname)
+        </p>
+                </div>
+        <div class=Inform>
+        <p>
+            Номер телефона законного представителя: <br />
+            @Html.DisplayFor(model => model.ReletedPhone)
+        </p>
+              <p>
+            Место работы законного представителя: <br />
+            @Html.DisplayFor(model => model.ReleatedWork)
+        </p>
+              <p>
+            Должность законного представителя: <br />
+            @Html.DisplayFor(model => model.ReleatedPosition)
         </p>
          <p>
             Дата рождения: <br />
             @Html.DisplayFor(model => model.BirthDay)
         </p>
+                </div>
+        <div class=Inform>
          <p>
             Дата поступления: <br />
             @Html.DisplayFor(model => model.StartDate)
         </p>
          <p>
-            Дата поступления/отчисления: <br />
+            Дата отчисления: <br />
             @Html.DisplayFor(model => model.EndDate)
         </p>
         </div>

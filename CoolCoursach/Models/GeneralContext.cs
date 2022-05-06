@@ -20,10 +20,10 @@ namespace CoolCoursach.Models
             string userRoleName = "user";
 
             string adminlogin = "admin";
-            string adminPass = "123";
+            string adminPass = "Root123";
 
             string moderlogin = "moder";
-            string moderpass = "12";
+            string moderpass = "Moder12";
 
             string GroupName = "И-1А";
             string GroupName2 = "И-2А";

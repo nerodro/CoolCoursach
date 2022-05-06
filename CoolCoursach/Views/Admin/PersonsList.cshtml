@@ -6,7 +6,7 @@
 @model IEnumerable<CoolCoursach.Models.User>
 <h4 class="display-4">Список всех людей</h4>
 <div class="row">
-        <div class="btn btn-primary">@Html.ActionLink("Добавить пользователя", "AddPerson", "Admin",new{},
+        <div class="btn btn-primary" style="border:0px">@Html.ActionLink("Добавить пользователя", "AddPerson", "Admin",new{},
         new{@style="color:white;text-decoration: none;"})</div>
         </div>
 @*<table>
@@ -62,9 +62,9 @@
             </h5>
             </div>
             <div class="card-footer">
-                <div class="btn btn-primary">@Html.ActionLink("Редактировать пользователя","EditPerson","Admin",
+                <div class="btn btn-primary" style="border:0px">@Html.ActionLink("Редактировать пользователя","EditPerson","Admin",
                 new{Id = User.Id}, new{@style="color:white;text-decoration: none;"})</div>
-                <div class="btn btn-danger">@Html.ActionLink("Удалить пользователя","DeletePerson","Admin",
+                <div class="btn btn-danger" style="border:0px">@Html.ActionLink("Удалить пользователя","DeletePerson","Admin",
                 new{Id = User.Id}, new{@style="color:white;text-decoration: none;"})</div>
             </div>
         </div>

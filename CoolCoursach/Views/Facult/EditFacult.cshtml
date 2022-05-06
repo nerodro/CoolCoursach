@@ -12,7 +12,7 @@
 
         <p>
             Название специальности <br />
-            @Html.EditorFor(model => model.Name)
+            @Html.EditorFor(model => model.Name,new{htmlAttributes = new{@pattern="[А-Яа-яЁё\\s]{4,}"}})
         </p>
         <p>
             <input type="submit" value="Добавить новую специальность" class="btn btn1"/>

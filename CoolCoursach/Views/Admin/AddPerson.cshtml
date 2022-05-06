@@ -12,15 +12,15 @@
             <div class = "Inform">
             <p>
                 <label>Имя</label>
-                <input name="Email" class="form-control" required/>
+                <input name="Email" class="form-control" pattern="[А-Яа-яЁё]{2,26}" required/>
                 </p>
             <p>
                 <label>Фамилия</label>
-                <input name="Surname" class="form-control"/>
+                <input name="Surname" class="form-control" pattern="[А-Яа-яЁё]{2,26}"/>
             </p>
              <p>
                 <label>Отчество</label>
-                <input name="Patronymic" class="form-control"/>
+                <input name="Patronymic" class="form-control" pattern="[А-Яа-яЁё]{2,26}"/>
             </p>
              <p>
                 <label>Фото</label>
@@ -28,62 +28,99 @@
             </p>
              <p>
                 <label>Пароль</label>
-                <input name="Password" class="form-control" type="password" required/>
+                <input name="Password" class="form-control" type="password" pattern="[А-ЯA-Z]+[А-Яа-яЁё0-9.A-Za-z!#$%]{6,}" required/>
+            </p>
+             <p>
+                <label>Паспортные данные</label>
+                <input name="Passport" class="form-control" id="validationTooltip01" pattern="[0-9 0-9 0-9]{12}"/>
+            </p>
+             <p>
+                <label>Номер телефона</label>
+                <input name="PhoneNumber" class="form-control" id="validationTooltip01" pattern="8{1}[0-9]{10}}" required/>
+            </p>
+            <p>
+                <label>Адрес проживания</label>
+                <input name="Adress" class="form-control" id="validationTooltip01" pattern="[А-Яа-яЁё0-9""\\s.]" required/>
             </p>
               <p>
                 <label>Имя матери</label>
-                <input name="MotherName" class="form-control"/>
+                <input name="MotherName" class="form-control" pattern="[А-Яа-яЁё]{2,26}"/>
             </p>
+ 
             <p>
                 <label>Фамилия матери</label>
-                <input name="MotherSurname" class="form-control"/>
-            </p>
-             <p>
-                <label>Имя отца</label>
-                <input name="FatherName" class="form-control"/>
+                <input name="MotherSurname" class="form-control" pattern="[А-Яа-яЁё]{2,26}"/>
             </p>
             </div>
             <div class="Inform">
+             <p>
+                <label>Номер телефона матери</label>
+                <input name="MotherPhone" class="form-control" pattern="8{1}[0-9]{10}}"/>
+            </p>
+            <p>
+                <label>Место работы матери</label>
+                <input name="MotherWork" class="form-control" pattern="[А-Яа-яЁё0-9""\\s.]"/>
+            </p>
+            <p>
+                <label>Должность матери</label>
+                <input name="MotherPosition" class="form-control" pattern="[А-Яа-яЁё0-9""\\s.]"/>
+            </p>
+             <p>
+                <label>Имя отца</label>
+                <input name="FatherName" class="form-control" pattern="[А-Яа-яЁё]{2,26}"/>
+            </p>
+            
               <p>
                 <label>Фамилия отца</label>
-                <input name="FatherSurname" class="form-control"/>
+                <input name="FatherSurname" class="form-control" pattern="[А-Яа-яЁё]{2,26}"/>
             </p>
+             <p>
+                <label>Номер телефона отца</label>
+                <input name="FatherPhone" class="form-control" pattern="8{1}[0-9]{10}}"/>
+            </p>
+            <p>
+                <label>Место работы отца</label>
+                <input name="FatherWork" class="form-control" pattern="[А-Яа-яЁё0-9""\\s.]"/>
+            </p>
+            <p>
+                <label>Должность отца</label>
+                <input name="FatherPosition" class="form-control" pattern="[А-Яа-яЁё0-9""\\s.]"/>
+            </p>
+
               <p>
                 <label>Имя законного представителя</label>
-                <input name="ReletedName" class="form-control" />
+                <input name="ReletedName" class="form-control" pattern="[А-Яа-яЁё]{2,26}"/>
             </p>
             <p>
                 <label>Фамилия законного представителя</label>
-                <input name="ReletedSurname" class="form-control" />
+                <input name="ReletedSurname" class="form-control" pattern="[А-Яа-яЁё]{2,26}"/>
+            </p>
+            </div>
+            <div class="Inform">
+             <p>
+                <label>Номер телефона законного представителя</label>
+                <input name="ReletedPhone" class="form-control" pattern="8{1}[0-9]{10}"/>
+            </p>
+            <p>
+                <label>Место работы законного представителя</label>
+                <input name="FatherWork" class="form-control" pattern="[А-Яа-яЁё0-9""\\s.]"/>
+            </p>
+            <p>
+                <label>Должность законного представителя</label>
+                <input name="FatherPosition" class="form-control" pattern="[А-Яа-яЁё0-9""\\s.]"/>
             </p>
             <p>
                 <label>Дата рождения</label>
-                <input name="BirthDay" class="form-control"/>
+                <input name="BirthDay" class="form-control" pattern="[0-9/0-9/0-9]{10}"/>
             </p>
             <p>
                 <label>Дата поступления</label>
-                <input name="StartDate" class="form-control"/>
+                <input name="StartDate" class="form-control" pattern="[0-9/0-9/0-9]{10}"/>
             </p>
             <p>
                 <label>Дата выпуска/отчисления</label>
-                <input name="EndDate" class="form-control"/>
+                <input name="EndDate" class="form-control" pattern="[0-9/0-9/0-9]{10}"/>
             </p>
-                  @*  <p>
-            Email пользователя <br />
-            @Html.EditorFor(model => model.Email)
-        </p>
-          <p>
-            Фамилия студента <br />
-            @Html.EditorFor(model => model.Surname)
-        </p>
-         <p>
-            Отчество студента <br />
-            @Html.EditorFor(model => model.Patronymic)
-        </p>
-        <p>
-            Пароль <br />
-            @Html.EditorFor(model => model.Password)
-        </p>*@
         <p>
             Роль <br />
             @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)

@@ -22,5 +22,16 @@ namespace CoolCoursach.Models
         public string EndDate { get; set; }
         public string ReletedName { get; set; }
         public string ReletedSurname { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Adress { get; set; }
+        public string MotherPhone { get; set; }
+        public string FatherPhone { get; set; }
+        public string ReletedPhone { get; set; }
+        public string MotherWork { get; set; }
+        public string MotherPosition { get; set; }
+        public string FatherrWork { get; set; }
+        public string FatherPosition { get; set; }
+        public string ReleatedWork { get; set; }
+        public string ReleatedPosition { get; set; }
     }
 }
