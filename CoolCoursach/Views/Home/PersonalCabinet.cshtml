@@ -4,149 +4,162 @@
 @{
 }
 @model CoolCoursach.Models.User
-
-<div class=containers style="margin: 0 100px;">
-       <legend style="text-align:center;">Информация о студенте</legend>
-       <div class=Photos>
-           <div class="imgs">
-            @if(Model.Photo != null)
+<legend style="text-align:center;">Информация о студенте</legend>
+        <div class="row">
+            <div class="col-sm-1.5">
+       <div class="card mb-3">
+           <div class="card-footer">
+               @if(Model.Photo != null)
             {
-            <img style="width:600px;height:600px;" class="imgs" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Photo))"/>
+            <img style="width:250px;height:400px;border:2px solid #D3D3D3" class="imgs" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Photo))"/>
             }
             else
             {  
-             <img style="width:600px;height:600px;" class="imgs" src="/img/blank-profile-picture-973460__340.jpg">
+             <img style="width:250px;height:400px;border:2px solid #D3D3D3" class="imgs" src="/img/blank-profile-picture-973460__340.jpg">
             }
-            </div>
-        </div>
-        <br /> <br />
-      <div class=Inform>
+            <p>
+            <b>Дата рождения:</b> <br />
+            @Html.DisplayFor(model => model.BirthDay)
+        </p>
         <p>
-            Имя студента: <br />
+            <b>Статус:</b> <br />
+            @Html.DisplayFor(model => model.StatusName, ViewBag.Statuss as SelectList)
+        </p>
+               </div>
+               </div>
+               </div>
+               <div class="col-sm-4">
+       <div class="card mb-3">
+           <div class="card-footer">
+               <p><h4>Личные данные</h4></p>
+                  <p>
+            <b>Имя студента:</b> <br />
             @Html.DisplayFor(model => model.Email)
         </p>
           <p>
-            Фамилия студента: <br />
+            <b>Фамилия:</b> <br />
             @Html.DisplayFor(model => model.Surname)
         </p>
          <p>
-            Отчество студента: <br />
+            <b>Отчество студента:</b> <br />
             @Html.DisplayFor(model => model.Patronymic)
         </p>
             <p>
-            Группа: <br />
-            @Html.DisplayFor(model => model.GroupName, ViewBag.Groups as SelectList)
-        </p>
-             <p>
-            Специальность: <br />
-            @Html.DisplayFor(model => model.FacultName, ViewBag.Facults as SelectList)
-        </p>
-        <p>
-            Статус: <br />
-            @Html.DisplayFor(model => model.StatusName, ViewBag.Statuss as SelectList)
-        </p> 
-          <p>
-            Паспортные данные: <br />
+            <b>Паспортные данные: </b><br />
             @Html.DisplayFor(model => model.Passport)
         </p>
         <p>
-            Адрес проживания: <br />
+            <b>Адрес проживания: </b><br />
             @Html.DisplayFor(model => model.Adress)
         </p>
         <p>
-            Номер телефона: <br />
+            <b>Номер телефона:</b> <br />
             @Html.DisplayFor(model => model.PhoneNumber)
         </p>
-                        </div>
-                   </div>
-                <div class="containers">
-        <div class=Inform>
-          <p>
-            Имя матери: <br />
+               </div>
+               </div>
+               </div>
+               <div class="col-sm-4">
+       <div class="card mb-3">
+           <div class="card-footer">
+               <p><h4>Данные об учебе</h4></p>
+                 <p>
+            <b>Группа:</b> <br />
+            @Html.DisplayFor(model => model.GroupName, ViewBag.Groups as SelectList)
+        </p>
+             <p>
+            <b>Специальность:</b> <br />
+            @Html.DisplayFor(model => model.FacultName, ViewBag.Facults as SelectList)
+        </p>
+            <p>
+           <b> Дата поступления:</b> <br />
+            @Html.DisplayFor(model => model.StartDate)
+        </p>
+         <p>
+            <b>Дата отчисления:</b> <br />
+            @Html.DisplayFor(model => model.EndDate)
+        </p>
+               </div>
+               </div>
+               </div>
+               <div class="col-sm-7">
+       <div class="card mb-3">
+           <div class="card-footer">
+               <p><h4>Родители/законные представители</h4></p>
+               <div class=containers>
+               <div class=Inform>
+                <p>
+           <b> Имя матери:</b> <br />
             @Html.DisplayFor(model => model.MotherName)
         </p>
           <p>
-            Фамилия матери: <br />
+            <b>Фамилия матери:</b> <br />
             @Html.DisplayFor(model => model.MotherSurname)
         </p>
 
           <p>
-            Номер телефона матери: <br />
+            <b>Номер телефона матери:</b> <br />
             @Html.DisplayFor(model => model.MotherPhone)
         </p>
           <p>
-            Место работы матери: <br />
+            <b>Место работы матери:</b> <br />
             @Html.DisplayFor(model => model.MotherWork)
         </p>
-        </div>
-        <div class=Inform>
           <p>
-            Должность матери: <br />
+            <b>Должность матери:</b> <br />
             @Html.DisplayFor(model => model.MotherPosition)
         </p>
           <p>
-            Имя отца: <br />
+            <b>Имя отца:</b> <br />
             @Html.DisplayFor(model => model.FatherName)
         </p>
           <p>
-            Фамилия отца: <br />
+           <b> Фамилия отца:</b> <br />
             @Html.DisplayFor(model => model.FatherSurname)
         </p>
          <p>
-            Номер телефона отца: <br />
+            <b>Номер телефона отца:</b> <br />
             @Html.DisplayFor(model => model.FatherPhone)
         </p>
-                </div>
+        </div>
         <div class=Inform>
          <p>
-            Место работы отца: <br />
+            <b>Место работы отца:</b> <br />
             @Html.DisplayFor(model => model.FatherrWork)
         </p>
          <p>
-            Должность отца: <br />
+            <b>Должность отца:</b> <br />
             @Html.DisplayFor(model => model.FatherPosition)
         </p>
          <p>
-            Имя законного представителя: <br />
+            <b>Имя законного представителя:</b> <br />
             @Html.DisplayFor(model => model.ReletedName)
         </p>
         <p>
-            Фамилия законного представителя: <br />
+            <b>Фамилия законного представителя:</b> <br />
             @Html.DisplayFor(model => model.ReletedSurname)
         </p>
-                </div>
-        <div class=Inform>
         <p>
-            Номер телефона законного представителя: <br />
+            <b>Номер телефона законного представителя:</b> <br />
             @Html.DisplayFor(model => model.ReletedPhone)
         </p>
               <p>
-            Место работы законного представителя: <br />
+            <b>Место работы законного представителя:</b> <br />
             @Html.DisplayFor(model => model.ReleatedWork)
         </p>
               <p>
-            Должность законного представителя: <br />
+            <b>Должность законного представителя:</b> <br />
             @Html.DisplayFor(model => model.ReleatedPosition)
         </p>
-         <p>
-            Дата рождения: <br />
-            @Html.DisplayFor(model => model.BirthDay)
-        </p>
-                </div>
-        <div class=Inform>
-         <p>
-            Дата поступления: <br />
-            @Html.DisplayFor(model => model.StartDate)
-        </p>
-         <p>
-            Дата отчисления: <br />
-            @Html.DisplayFor(model => model.EndDate)
-        </p>
         </div>
-        @*<a href="/Home/Index" class="btn btn1">Назад</a>*@
-</div>
+        </div>
+               </div>
+               </div>
+               </div>
+            </div>
 <div class="row">
 <div class="btn btn-primary">
 @Html.ActionLink("На главную","Index", "Home",new{}, new{@style="color:white;text-decoration: none; "})
 </div>
 </div>
+    

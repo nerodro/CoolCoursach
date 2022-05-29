@@ -6,11 +6,15 @@
 @model IEnumerable<CoolCoursach.Models.Facult>
 <h4 class="display-4">Список специальностей</h4>
         @Html.ActionLink("Добавить специальность", "AddFacult", "Facult")
-<table>
+<table class="table table-bordered table-hover">
+  <thead>
     <tr>
-        <td>Название специальности</td>
+      <th scope="col">Название специальности</th>
     </tr>
-    @foreach(var Facult in Model){
+  </thead>
+  <tbody>
+    <tr>
+@foreach(var Facult in Model){
     <tr>
         <td>@Facult.Name</td>
     
@@ -18,4 +22,6 @@
     <td>@Html.ActionLink("Удалить специальность","DeleteFacult","Facult", new{Id = Facult.Id})</td>
         </tr>
     }
+    </tr>
+  </tbody>
 </table>

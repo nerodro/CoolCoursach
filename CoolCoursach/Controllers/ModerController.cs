@@ -15,10 +15,9 @@ namespace CoolCoursach.Controllers
     public class ModerController : Controller
     {
         private readonly GeneralContext _context;
-        public ModerController(GeneralContext context/*, IRepository repo*/)
+        public ModerController(GeneralContext context)
         {
             _context = context;
-            //_repository = repo;
         }
         [HttpGet]
         public void FindId(int? Id)
@@ -99,7 +98,7 @@ namespace CoolCoursach.Controllers
             //    user.Role = userRole;
             user.Photo = user.Photo;
             user.RoleId = 3;
-            if (user.Photo != null)
+            if (userss.Photo != null)
             {
                 byte[] imageData = user.Photo;
                 using (var binaryReader = new BinaryReader(userss.Photo.OpenReadStream()))

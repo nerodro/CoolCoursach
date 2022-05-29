@@ -7,11 +7,15 @@
 @model IEnumerable<CoolCoursach.Models.Group>
 <h4 class="display-4">Список всех групп</h4>
         @Html.ActionLink("Добавить группу", "AddGroup", "Group")
-<table>
+<table class="table table-bordered table-hover">
+  <thead>
     <tr>
-        <td>Название группы</td>
+      <th scope="col">Название группы</th>
     </tr>
-    @foreach(var Group in Model){
+  </thead>
+  <tbody>
+    <tr>
+ @foreach(var Group in Model){
     <tr>
         <td>@Group.Name</td>
     
@@ -19,4 +23,6 @@
     <td>@Html.ActionLink("Удалить группу","DeleteGroup","Group", new{Id = Group.Id})</td>
         </tr>
     }
+    </tr>
+  </tbody>
 </table>
