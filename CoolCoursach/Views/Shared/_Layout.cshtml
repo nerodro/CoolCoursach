@@ -24,7 +24,7 @@
                              @if(User.IsInRole("admin")|| User.IsInRole("moder")){
                         <li class="nav-item">
                            @*<a class = "nav-link text-dark" @Html.ActionLink("Список учащихся(moder)","ModerPage","Moder", new{@class= "nav-link text-dark"}) *@
-                           <a class = "nav-link text-dark", href="/Moder/ModerPage">Список учащихся(moder)</a>
+                           <a class = "nav-link text-dark", href="/Moder/ModerPage">Панель модератора</a>
                         </li>
                              }
                                @if(User.IsInRole("admin")){
@@ -33,6 +33,9 @@
                            <a class = "nav-link text-dark", href="/Admin/AdminPage">Панель администратора</a>
                         </li>
                              }
+                             <li class="nav-item">
+                                 <a class = "nav-link text-dark", href="/Reports/AllReports">Отчеты</a>
+                             </li>
                              <li class="nav-item">
                            <a class = "nav-link text-dark", href="/Account/Logout">Выйти</a>
                            @*@Html.ActionLink("Выйти", "Logout", "Account")*@
@@ -56,11 +59,13 @@
             &copy; 2022 - Managment System by Nikita Tarakanov @*- <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
         </div>
         <div class="icons">
-            <a href="https://vk.com/data22116323052013"><img src="~/img/vk.png" style="width:30px;height:30px;"/></a>
+            <a href="https://github.com/nerodro/CoolCoursach"><img src="~/img/git.png" style="width:28px;height:28px;/></a>
+            <a href="https://vk.com/data22116323052013"><img src="~/img/vk.png" style="width:30px;height:30px;margin:5px"/></a>
             <a href="https://www.linkedin.com/in/никита-тараканов-926294207/">
                 <img src="~/img/lk.png" style="width:40px;height:40px;"/>
                 </a>
             <a href="https://www.reddit.com/user/Immediate_Impress575"><img src="~/img/reddit.png" style="width:30px;height:30px;"/></a>
+            
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -4,20 +4,22 @@
 @{
 }
 @model CoolCoursach.Models.User
+<script src="https://unpkg.com/imask"></script>
+       <script src="~/js~/js/site.js"></script>
          <form asp-action="AddStudent" asp-controller="Moder" method="post" enctype="multipart/form-data">
         <div class=containers>
        <legend style="text-align:center;">Новый студент</legend>
         <div class=Inform>
        <p>
-                <label>Имя</label>
+                <label>Имя(*)</label>
                 <input name="Email" class="form-control" id="" pattern="[А-Яа-яЁё]{2,26}" required/>
                 </p>
             <p>
-                <label>Фамилия</label>
+                <label>Фамилия(*)</label>
                 <input name="Surname" class="form-control" id="validationTooltip01" pattern="[А-Яа-яЁё]{2,26}" required/>
             </p>
              <p>
-                <label>Отчество</label>
+                <label>Отчество(*)</label>
                 <input name="Patronymic" class="form-control" id="validationTooltip01" pattern="[А-Яа-яЁё]{2,26}" required/>
             </p>
              <p>
@@ -29,15 +31,15 @@
                 <input name="Password" class="form-control" id="validationTooltip01" type="password" required/>
             </p>*@
               <p>
-                <label>Паспортные данные</label>
-                <input name="Passport" class="form-control" id="validationTooltip01" pattern="[0-9 0-9 0-9]{12}" required/>
+                <label>Паспортные данные(*)</label>
+                <input name="Passport" class="form-control" id="passport" required />
             </p>
             <p>
-                <label>Номер телефона</label>
-                <input name="PhoneNumber" class="form-control" id="validationTooltip01" pattern="8{1}[0-9]{10}" required/>
+                <label>Номер телефона(*)</label>
+                <input name="PhoneNumber" class="form-control" id="phone" required />
             </p>
             <p>
-                <label>Адрес проживания</label>
+                <label>Адрес проживания(*)</label>
                 <input name="Adress" class="form-control" id="validationTooltip01" pattern="[А-Яа-яЁё0-9\s.]{4,}" required/>
             </p>
             <p>
@@ -52,7 +54,7 @@
              <div class=Inform>
              <p>
                 <label>Номер телефона матери</label>
-                <input name="MotherPhone" class="form-control" id="validationTooltip01" pattern="8{1}[0-9]{10}}"/>
+                <input name="MotherPhone" class="form-control" id="phone2"/>
             </p>
             <p>
                 <label>Место работы матери</label>
@@ -72,7 +74,7 @@
             </p>
             <p>
                 <label>Номер телефона отца</label>
-                <input name="FatherPhone" class="form-control" pattern="8{1}[0-9]{10}"/>
+                <input name="FatherPhone" class="form-control" id="phone3"/>
             </p>
             <p>
                 <label>Место работы отца</label>
@@ -94,7 +96,7 @@
             </p>
             <p>
                 <label>Номер телефона законного представителя</label>
-                <input name="ReletedPhone" class="form-control" pattern="8{1}[0-9]{10}"/>
+                <input name="ReletedPhone" class="form-control" id="phone4"/>
             </p>
             <p>
                 <label>Место работы законного представителя</label>
@@ -105,16 +107,16 @@
                 <input name="ReleatedPosition" class="form-control" pattern="[А-Яа-яЁё0-9"\s.]"/>
             </p>
             <p>
-                <label>Дата рождения</label>
-                <input name="BirthDay" class="form-control" id="validationTooltip01" required pattern="[0-9/0-9/0-9]{10}"/>
+                <label>Дата рождения(*)</label>
+                <input name="BirthDay" class="form-control" id="Year" required @*pattern="[0-9/0-9/0-9]{10}"*@/>
             </p>
             <p>
-                <label>Дата поступления</label>
-                <input name="StartDate" class="form-control" id="validationTooltip01" required pattern="[0-9/0-9/0-9]{10}"/>
+                <label>Дата поступления(*)</label>
+                <input name="StartDate" class="form-control" id="Year" required @*pattern="[0-9/0-9/0-9]{10}"*@/>
             </p>
             <p>
                 <label>Дата выпуска/отчисления</label>
-                <input name="EndDate" class="form-control" pattern="[0-9/0-9/0-9]{10}"/>
+                <input name="EndDate" class="form-control" id="Year" @*pattern="[0-9/0-9/0-9]{10}"*@/>
             </p>
              <p>
             Группа <br />

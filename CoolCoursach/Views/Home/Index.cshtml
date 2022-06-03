@@ -1,24 +1,26 @@
 ﻿@model CoolCoursach.Models.UserListViewModel
-
-<div class="text-center">
-
-</div>
+<script src="https://unpkg.com/imask"></script>
+<script src="~/js/site.js"></script>
 <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn"> Поиск</button>
     <div id="my Dropdown" class="dropdown-content">
         <form method="get">
         <div class="form-inline form-group">
-        <label class="control-label">Имя студента: </></label>
-        <input name="Email" class="form-control" pattern="[А-Яа-яЁё]{2,26}" />
+        <label class="control-label" autopostback="True" enableviewstate="true">Имя студента: </></label>
+        <input name="Email" class="form-control" pattern="[А-Яа-яЁё]{2,26}" value="@Context.Request.Query["Email"]"/>
         <label class="control-label">Фамилия: </label>
         <input name="Surname" class="form-control" pattern="[А-Яа-яЁё]{2,26}"/>
         <label class="control-label">Отчество: </label>
         <input name="Patronymic" class="form-control" pattern="[А-Яа-яЁё]{2,26}" />
         <label class="control-label">Паспортные данные: </label>
-        <input name="Passport" class="form-control" pattern="[0-9 0-9 0-9]{12}" />
+        <input name="Passport" class="form-control"/>
+        <label class="control-label">Номер телефона: </label>
+        <input name="PhoneNumber" class="form-control" />
+        <label class="control-label">Дата рождения: </label>
+        <input name="Birthday" class="form-control"/>
  
         @*<label class="control-label">Группа: </label>
-        <select name="group" asp-items="Model.Groups" class="form-control"></select>
+        <select name="group" asp-items="Model.Groups" class="form-control" Value=""></select>
         <label class="control-label">Специальность: </label>
         <select name="facult" asp-items="Model.Facults" class="form-control"></select>*@
                
@@ -51,11 +53,18 @@
             </h5>
             </div>
             <div class="card-footer">
-                <div class="btn btn-primary" style="border:0px;">@Html.ActionLink("Подробнее", "PersonalCabinet", "Home",
-                new{Id = User.Id}, new{@style="color:white;text-decoration: none;"})</div>
+                <a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Home", 
+                action="PersonalCabinet",Id = User.Id})">Подробнее</a>
+                <a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Home", 
+                action="Export",Id = User.Id})">Экспортировать</a>
             </div>
         </div>
         </div>
         }
     }
 </div>
+@*@if(Convert.ToString(Context.Request.Query["Email"]) != null)
+{
+    <h1>@Context.Request.Query["Email"]</h1>
+}*@
+<h1>@ViewBag.Nik</h1>

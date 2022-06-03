@@ -5,7 +5,8 @@
 }
 @model CoolCoursach.Models.User
     <fieldset>
-       
+       <script src="https://unpkg.com/imask"></script>
+       <script src="~/js~/js/site.js"></script>
         <form asp-action="AddPerson" asp-controller="Admin" method="post" enctype="multipart/form-data">
             <div class=containers>
                  <legend style="text-align:center;">Новый пользователь</legend>
@@ -32,11 +33,11 @@
             </p>
              <p>
                 <label>Паспортные данные</label>
-                <input name="Passport" class="form-control" id="validationTooltip01" pattern="[0-9 0-9 0-9]{12}"/>
+                <input name="Passport" class="form-control"@* id="passport"*@ @*pattern="[0-9 0-9 0-9]{12}"*@/>
             </p>
              <p>
                 <label>Номер телефона</label>
-                <input name="PhoneNumber" class="form-control" id="validationTooltip01" pattern="8{1}[0-9]{10}}"/>
+                <input name="PhoneNumber" class="form-control" id="phone" placeholder="+7(000)000-00-00" />
             </p>
             <p>
                 <label>Адрес проживания</label>
@@ -138,6 +139,8 @@
             Статус студента <br />
             @Html.DropDownListFor(model => model.StatusName, ViewBag.Status as SelectList)
         </p>
+
+
         </div>
         </div>
         <div class=containers>

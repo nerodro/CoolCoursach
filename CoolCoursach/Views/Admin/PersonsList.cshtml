@@ -6,39 +6,9 @@
 @model IEnumerable<CoolCoursach.Models.User>
 <h4 class="display-4">Список всех людей</h4>
 <div class="row">
-        <div class="btn btn-primary" style="border:0px">@Html.ActionLink("Добавить пользователя", "AddPerson", "Admin",new{},
-        new{@style="color:white;text-decoration: none;"})</div>
+        <a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Admin", 
+                action="AddPerson"})">Добавить пользователя </a>
         </div>
-@*<table>
-    <tr>
-        <td>Фото</td>
-        <td>Имя</td>
-        <td>Фамилия</td>
-        <td>Отчество</td>
-        <td>Группа</td>
-        <td>Специальность</td>
-        <td>Статус</td>
-    </tr>
-    @foreach(var User in Model){
-    <tr>
-        <td>
-            @if(User.Photo != null)
-            {
-                <img style="width:80px;height:60px;" src="data:image/jpeg;base64,@(Convert.ToBase64String(User.Photo))"/>
-            }
-            </td>
-            <td>@User.Email</td>
-         <td>@User.Surname</td>
-        <td>@User.Patronymic</td>
-        <td>@User.GroupName</td>
-        <td>@User.FacultName</td>
-    
-    <td>@Html.ActionLink("Редактировать пользователя","EditPerson","Admin", new{Id = User.Id})</td>
-    <td>@Html.ActionLink("Удалить пользователя","DeletePerson","Admin", new{Id = User.Id})</td>
-        </tr>
-    }
-    </table>*@
-
     <div class="row">
 @foreach(var User in Model){
 
@@ -62,10 +32,10 @@
             </h5>
             </div>
             <div class="card-footer">
-                <div class="btn btn-primary" style="border:0px">@Html.ActionLink("Редактировать пользователя","EditPerson","Admin",
-                new{Id = User.Id}, new{@style="color:white;text-decoration: none;"})</div>
-                <div class="btn btn-danger" style="border:0px">@Html.ActionLink("Удалить пользователя","DeletePerson","Admin",
-                new{Id = User.Id}, new{@style="color:white;text-decoration: none;"})</div>
+                <a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Admin", 
+                action="EditPerson", Id = User.Id})">Редактировать пользователя </a>
+                <a class="btn btn-danger" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Admin", 
+                action="DeletePerson", Id = User.Id})">Удалить пользователя </a>
             </div>
         </div>
         </div>

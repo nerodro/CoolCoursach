@@ -5,8 +5,8 @@
 }
     <div class=containers>
         <div class="Inform">
-            <div class="btn btn-primary" style="border:0px">@Html.ActionLink("Все люди на сайте", "PersonsList", "Admin", new{}, new{@style="color:white;text-decoration: none;"})</div>
-            <div class="btn btn-primary" style="border:0px">@Html.ActionLink("Все группы", "ListGroup", "Group",new{}, new{@style="color:white;text-decoration: none;"})</div>
-            <div class="btn btn-primary" style="border:0px">@Html.ActionLink("Все специальности", "ListFacult", "Facult",new{}, new{@style="color:white;text-decoration: none;"})</div>
+            <a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Admin", action="PersonsList"})">Все люди на сайте</a>
+            <a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Group", action="ListGroup"})">Все люди на сайте</a>
+            <a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Facult", action="ListFacult"})">Все люди на сайте</a>
         </div>
     </div>

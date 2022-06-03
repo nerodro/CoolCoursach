@@ -16,7 +16,7 @@ namespace CoolCoursach.Models
         public Facult Facult { get; set; }
        // public int FacultId { get; set; }
         public string FacultName { get; set; }
-        public int? RoleId { get; set; }
+        public int? RoleId { get; set; }       
         public Role Role { get; set; }
         public int? CourceId { get; set; }
         public Cource Cource { get; set; }

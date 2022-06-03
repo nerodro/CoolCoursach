@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<p>
+<a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Reports", 
+action="ExportAll"})">Все студенты на сайте</a>
+</p>
+<p>
+<a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Reports", 
+action="ExportActive"})">Все учащиеся студенты</a>
+</p>
+<p>
+<a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Reports", 
+action="ExportInactive"})">Все выпустившиеся студенты</a>
+</p>
+<p>
+<a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Reports", 
+action="ExportHalt"})">Все отчисленные студенты</a>
+</p>
+<a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Reports", 
+action="FindExport"})">Выгрузка с фильтрами</a>
+</p>

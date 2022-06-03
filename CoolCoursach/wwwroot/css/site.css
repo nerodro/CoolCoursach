@@ -91,7 +91,7 @@ body {
 }
 
     .btn::before {
-        /*background: #ff7675;*/
+        background: #ff7675;
         content: "";
         position: absolute;
         top: 50%;

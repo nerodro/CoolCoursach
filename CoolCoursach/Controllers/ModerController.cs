@@ -56,7 +56,7 @@ namespace CoolCoursach.Controllers
             StartDate = user.StartDate, EndDate = user.EndDate, ReletedName = user.ReletedName, ReletedSurname = user.ReletedSurname, PhoneNumber = user.PhoneNumber,
             Adress = user.Adress, MotherPhone = user.MotherPhone, FatherPhone = user.FatherPhone, ReletedPhone = user.ReletedPhone, MotherWork = user.MotherWork, 
             MotherPosition = user.MotherPosition, FatherPosition = user.FatherPosition, FatherrWork = user.FatherrWork, ReleatedPosition = user.ReleatedPosition, 
-            ReleatedWork = user.ReleatedWork,
+            ReleatedWork = user.ReleatedWork, GroupId = user.GroupId,
             };
             if(user.Photo != null)
             {

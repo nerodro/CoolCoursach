@@ -158,8 +158,9 @@
                </div>
             </div>
 <div class="row">
-<div class="btn btn-primary">
-@Html.ActionLink("На главную","Index", "Home",new{}, new{@style="color:white;text-decoration: none; "})
-</div>
+<a class="btn btn-primary btn-sm" style="border:0px" href="@Url.RouteUrl("Default", new{controller = "Home", action="Index"})">На главную</a>
+<p>
+
+</p>
 </div>
     

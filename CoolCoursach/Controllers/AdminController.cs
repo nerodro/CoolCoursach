@@ -78,6 +78,8 @@ namespace CoolCoursach.Controllers
                 FatherrWork = user.FatherrWork,
                 ReleatedPosition = user.ReleatedPosition,
                 ReleatedWork = user.ReleatedWork,
+                PhoneNumber = user.PhoneNumber,
+                Passport = user.Passport,
             };
             if (user.Photo != null)
             {
