@@ -1,6 +1,8 @@
 ﻿using ClosedXML.Excel;
 using CoolCoursach.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,17 +18,12 @@ namespace CoolCoursach.Controllers
         {
             _context = context;
         }
-        public IActionResult AllReports()
-        {
-            return View();
-        }
-        public IActionResult ExportAll()
+        private void ReportDraft()
         {
             using (XLWorkbook workbook = new XLWorkbook())
             {
                 var worksheet = workbook.Worksheets.Add("Student");
                 var currentRow = 1;
-
                 worksheet.Cell("A1").Value = "Имя";
                 worksheet.Cell("B1").Value = "Фамилия";
                 worksheet.Cell("C1").Value = "Отчество";
@@ -57,7 +54,48 @@ namespace CoolCoursach.Controllers
                 worksheet.Row(1).Style.Font.Bold = true;
                 worksheet.Row(1).Style.Fill.BackgroundColor = XLColor.FromName("MediumBlue");
                 worksheet.Row(1).Style.Font.FontColor = XLColor.White;
-
+            }
+        }
+        public IActionResult AllReports()
+        {
+            return View();
+        }
+        public IActionResult ExportAll()
+        {
+            using (XLWorkbook workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Student");
+                var currentRow = 1;
+                worksheet.Cell("A1").Value = "Имя";
+                worksheet.Cell("B1").Value = "Фамилия";
+                worksheet.Cell("C1").Value = "Отчество";
+                worksheet.Cell("D1").Value = "Паспортные данные";
+                worksheet.Cell("E1").Value = "Номер телефона";
+                worksheet.Cell("F1").Value = "Адрес проживания";
+                worksheet.Cell("G1").Value = "Имя матери";
+                worksheet.Cell("H1").Value = "Фамилия матери";
+                worksheet.Cell("I1").Value = "Номер телефона матери";
+                worksheet.Cell("J1").Value = "Место работы матери";
+                worksheet.Cell("K1").Value = "Должность матери";
+                worksheet.Cell("L1").Value = "Имя отца";
+                worksheet.Cell("M1").Value = "Фамилия отца";
+                worksheet.Cell("N1").Value = "Номер телефона отца";
+                worksheet.Cell("O1").Value = "Место работы отца";
+                worksheet.Cell("P1").Value = "Должность отца";
+                worksheet.Cell("Q1").Value = "Имя законного представителя";
+                worksheet.Cell("R1").Value = "Фамилия законного представителя";
+                worksheet.Cell("S1").Value = "Номер телефона законного представителя";
+                worksheet.Cell("T1").Value = "Место работы законного представителя";
+                worksheet.Cell("U1").Value = "Должность законного представителя";
+                worksheet.Cell("V1").Value = "Дата рождения";
+                worksheet.Cell("W1").Value = "Дата поступления";
+                worksheet.Cell("X1").Value = "Дата выпуска/отчисления";
+                worksheet.Cell("Y1").Value = "Группа ";
+                worksheet.Cell("Z1").Value = "Специальность";
+                worksheet.Cell("AA1").Value = "Статус студента";
+                worksheet.Row(1).Style.Font.Bold = true;
+                worksheet.Row(1).Style.Fill.BackgroundColor = XLColor.FromName("MediumBlue");
+                worksheet.Row(1).Style.Font.FontColor = XLColor.White;
                 //нумерация строк/ столбцов начинается с индекса 1(не 0)
                 foreach (var users in _context.Users)
                 {
@@ -402,7 +440,7 @@ namespace CoolCoursach.Controllers
             }
         }
         [HttpGet]
-        public IActionResult FindExport(string group, string facult, string Email, string Surname, string Patronymic/*,string facult*/, string Passport, int RoleId)
+        public IActionResult FindExport(string group)
         {
             return View();
         }
@@ -450,13 +488,14 @@ namespace CoolCoursach.Controllers
                 string Patronymic = Request.Form["Patronymic"];
                 string GroupName = Request.Form["GroupName"];
                 string FacultName = Request.Form["FacultName"];
+                string StartDate = Request.Form["StartDate"];
+                string EndDate = Request.Form["EndDate"];
                 foreach (var userss in _context.Users)
                 {
-                    //users.RoleId = 3;
                     if (userss.RoleId == 3)
                     {
                         if ((userss.Email == Email) || (userss.Surname == Surname) || (userss.Patronymic == Patronymic) || (userss.GroupName == GroupName)
-                            || (userss.FacultName == FacultName))
+                            || (userss.FacultName == FacultName) || (userss.BirthDay == StartDate) || (userss.EndDate == EndDate))
                         {
                             currentRow++;
                             worksheet.Cell(currentRow, 1).Value = userss.Email;

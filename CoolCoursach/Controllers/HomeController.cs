@@ -34,11 +34,19 @@ namespace CoolCoursach.Controllers
         public IActionResult Index(string group, string facult, string Email, string Surname, string Patronymic/*,string facult*/, string Passport, 
             string PhoneNumber, string Birthday)
         {
-            IQueryable<User> users = _context.Users.Include(p => p.Role);
+            IQueryable<User> users = _context.Users.Include(p => p.Group);
             //if (!String.IsNullOrEmpty(group))
             //{
-            //    users = users.Where(p => p.GroupName == group);
+            //    users = users.Where(p => p.Group == group);
             //}
+            if(group != null && group != "Все")
+            {
+                users = users.Where(p => p.GroupName == group);
+            }
+            if(facult != null && facult != "Все")
+            {
+                users = users.Where(p => p.FacultName == facult);
+            }
             //if (!String.IsNullOrEmpty(facult))
             //{
             //    users = users.Where(p => p.FacultName == facult);
@@ -72,21 +80,20 @@ namespace CoolCoursach.Controllers
             List<Facult> facults = _context.Facults.ToList();
             // устанавливаем начальный элемент, который позволит выбрать всех
 
-            //groups.Insert(0, new Group { Name = "Все", Id = 0 });
-            //facults.Insert(0, new Facult { Name = "Все", Id = 0 });
+            groups.Insert(0, new Group { Name = "Все", Id = 0 });
+            facults.Insert(0, new Facult { Name = "Все", Id = 0 });
 
             UserListViewModel viewModel = new UserListViewModel
             {
                 Users = users.ToList(),
-                //Groups = new SelectList(groups, "Name", "Name"),
+                Groups = new SelectList(groups, "Name", "Name"),
                 Email = Email,
-                //Groups = group,
                 Surname = Surname,
                 Patronymic = Patronymic,
                 Passport = Passport,
                 PhoneNumber = PhoneNumber,
                 BirthDay = Birthday,
-                //Facults = new SelectList(facults, "Name", "Name")
+                Facults = new SelectList(facults, "Name", "Name")
 
             };
             return View(viewModel);

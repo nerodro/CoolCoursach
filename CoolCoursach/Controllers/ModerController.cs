@@ -109,7 +109,7 @@ namespace CoolCoursach.Controllers
             }
             else
             {
-                userss.Photo = userss.Photo;
+                user.Photo = user.Photo;
             }
             _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();

@@ -9,20 +9,20 @@
         <label class="control-label" autopostback="True" enableviewstate="true">Имя студента: </></label>
         <input name="Email" class="form-control" pattern="[А-Яа-яЁё]{2,26}" value="@Context.Request.Query["Email"]"/>
         <label class="control-label">Фамилия: </label>
-        <input name="Surname" class="form-control" pattern="[А-Яа-яЁё]{2,26}"/>
+        <input name="Surname" class="form-control" pattern="[А-Яа-яЁё]{2,26}"  value="@Context.Request.Query["Surname"]"/>
         <label class="control-label">Отчество: </label>
-        <input name="Patronymic" class="form-control" pattern="[А-Яа-яЁё]{2,26}" />
+        <input name="Patronymic" class="form-control" pattern="[А-Яа-яЁё]{2,26}" value="@Context.Request.Query["Patronymic"]"/>
         <label class="control-label">Паспортные данные: </label>
-        <input name="Passport" class="form-control"/>
+        <input name="Passport" class="form-control" value="@Context.Request.Query["Passport"]"/>
         <label class="control-label">Номер телефона: </label>
-        <input name="PhoneNumber" class="form-control" />
+        <input name="PhoneNumber" class="form-control" value="@Context.Request.Query["PhoneNumber"]" />
         <label class="control-label">Дата рождения: </label>
-        <input name="Birthday" class="form-control"/>
+        <input name="Birthday" class="form-control" value="@Context.Request.Query["Birthday"]"/>
  
-        @*<label class="control-label">Группа: </label>
-        <select name="group" asp-items="Model.Groups" class="form-control" Value=""></select>
+        <label class="control-label">Группа: </label>
+        <select name="group" asp-items="Model.Groups" class="form-control">Выберите группу</select>
         <label class="control-label">Специальность: </label>
-        <select name="facult" asp-items="Model.Facults" class="form-control"></select>*@
+        <select name="facult" asp-items="Model.Facults" class="form-control"></select>
                
         <input type="submit" value="Найти" class="btn btn-default"/>
         </div>
@@ -63,8 +63,3 @@
         }
     }
 </div>
-@*@if(Convert.ToString(Context.Request.Query["Email"]) != null)
-{
-    <h1>@Context.Request.Query["Email"]</h1>
-}*@
-<h1>@ViewBag.Nik</h1>

@@ -117,7 +117,7 @@ namespace CoolCoursach.Controllers
         [HttpPost]
         public async Task<IActionResult> EditPerson(User user, UserViewModel userss)
         {
-            if (user.Photo != null)
+            if (userss.Photo != null)
             {
                 byte[] imageData = user.Photo;
                 using (var binaryReader = new BinaryReader(userss.Photo.OpenReadStream()))

@@ -1,4 +1,7 @@
-﻿<form asp-action="FindExport" asp-controller="Reports" method="post" enctype="multipart/form-data">   
+﻿<form asp-action="FindExport" asp-controller="Reports" method="post" enctype="multipart/form-data">  
+    <legend style="text-align:center">Экспорт по фильтрам</legend>
+    <div class="containers" style="margin:0 200px;">
+        <div class="Inform">
           <p>
                 <label>Имя</label>
                 <input name="Email" class="form-control"/>
@@ -16,12 +19,31 @@
                 <input name="GroupName" class="form-control"/>
                 </p>
             <p>
+                </div>
+                <div class="Inform">
                 <p>
                 <label>Название специальности</label>
                 <input name="FacultName" class="form-control"/>
                 </p>
             <p>
+                <p>
+                <label>Дата поступления</label>
+                <input name="StartDate" class="form-control"/>
+                </p>
+            <p>
+                <p>
+                <p>
+                <label>Дата выпуска</label>
+                <input name="EndDate" class="form-control"/>
+                </p>
+            <p>
+                </div>
+                </div>
+                <div class="containers_btns">
+            <div class="Inform">
                 <input type="submit" value="Сгенерировать отчет" class="btn btn1"/>
+                </div>
+                </div>
         </form>
         <p>
 </p>
