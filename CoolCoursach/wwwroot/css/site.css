@@ -62,18 +62,34 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    /*background: #F8F8F8;*/
 }
 .footer {
-    display:flex;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  color:gray;
-  background:white;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    display: flex;
+    position: absolute;
+    background-color: #F8F8F8;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }
+
+.header{
+    background-color: black;
+}
+
+
+ul.navbar-nav {
+    margin: 0;
+    padding: 4px;
+    color: white;
+    font-size: 12.5pt;
+}
+
+    ul.navbar-nav li {
+        margin-right: 30px;
+        padding: 3px;
+        text-align:center
+    }
 
 .btn {
     position: relative;
